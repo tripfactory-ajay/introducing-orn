@@ -130,36 +130,52 @@
         
         /* Navigation */
         .nav-arrow {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-arrow:hover {
-            background: rgba(255,255,255,0.1);
-        }
-        
-        .nav-arrow.prev { left: 25px; }
-        .nav-arrow.next { right: 25px; }
-        
-        .nav-arrow svg {
-            width: 20px;
-            height: 20px;
-            stroke: rgba(255,255,255,0.6);
-            fill: none;
-            stroke-width: 2;
-        }
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-arrow.prev { 
+    left: 25px; 
+    border-color: rgba(253, 216, 53, 0.4);
+}
+
+.nav-arrow.next { 
+    right: 25px; 
+    border-color: rgba(0, 188, 212, 0.4);
+}
+
+.nav-arrow svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke-width: 2;
+}
+
+/* Yellow for left/prev arrow */
+.nav-arrow.prev svg {
+    stroke: #fdd835;
+}
+
+/* Light blue/cyan for right/next arrow */
+.nav-arrow.next svg {
+    stroke: #00bcd4;
+}
         
         .progress {
             position: fixed;
