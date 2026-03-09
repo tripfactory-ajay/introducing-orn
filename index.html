@@ -72,7 +72,7 @@
                 background: #000000 !important;
             }
             
-            .nav-arrow, .progress, .download-btn, .translate-container {
+            .nav-arrow, .progress, .download-btn, .download-btn-top, .translate-container {
                 display: none !important;
             }
             
@@ -220,6 +220,36 @@
         
         .translate-flag {
             font-size: 16px;
+        }
+        
+        /* Download Button - Top Left Corner */
+        .download-btn-top {
+            position: fixed;
+            top: 25px;
+            left: 40px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1002;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn-top:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .download-btn-top svg {
+            width: 18px;
+            height: 18px;
+            stroke: rgba(255,255,255,0.6);
+            fill: none;
+            stroke-width: 2;
         }
         
         /* Navigation Arrows - Yellow left, Blue right */
@@ -1048,6 +1078,30 @@
             line-height: 1.6;
         }
 
+        /* Slide 9 Footer Links */
+        .slide9-footer-links {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            z-index: 10;
+        }
+
+        .slide9-footer-links a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .slide9-footer-links a:hover {
+            color: rgba(255,255,255,0.7);
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .header {
@@ -1077,6 +1131,13 @@
             }
             
             .translate-btn {
+                width: 35px;
+                height: 35px;
+            }
+
+            .download-btn-top {
+                top: 15px;
+                left: 20px;
                 width: 35px;
                 height: 35px;
             }
@@ -1146,10 +1207,27 @@
             .slide9-main-text {
                 font-size: 32px;
             }
+
+            .slide9-footer-links {
+                padding: 0 20px;
+                font-size: 10px;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Download Button - Top Left -->
+    <button class="download-btn-top" onclick="printToPDF()" title="Save as PDF">
+        <svg viewBox="0 0 24 24">
+            <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+            <path d="M6 14h12v8H6z"/>
+        </svg>
+    </button>
 
     <!-- Translate Button -->
     <div class="translate-container">
@@ -1615,7 +1693,7 @@
  <!-- SLIDE 9: Final -->
 <div class="slide" id="slide9" data-slide="9">
     <div class="header">
-        <div style="width: 120px; height: 120px;"></div> <!-- Invisible spacer -->
+        <div style="width: 120px; height: 120px;"></div> <!-- Empty spacer -->
         <span class="slide-number"><span class="current">09</span> / <span class="total">09</span></span>
     </div>
         <div class="slide9-content">
@@ -1631,6 +1709,11 @@
             <div class="slide9-footer animate delay-3" data-translate="slide9-footer">
                 Your way to discover, live, and experience the world — precisely, effortlessly, beautifully.
             </div>
+        </div>
+        <!-- Slide 9 Footer Links -->
+        <div class="slide9-footer-links">
+            <a href="https://www.orn.com" target="_blank">www.orn.com</a>
+            <span>Copyright © ORN 2026</span>
         </div>
     </div>
 
@@ -2521,6 +2604,7 @@
             document.querySelectorAll('.nav-arrow').forEach(el => el.style.display = 'none');
             document.querySelector('.progress').style.display = 'none';
             document.querySelector('.download-btn').style.display = 'none';
+            document.querySelector('.download-btn-top').style.display = 'none';
             document.querySelector('.translate-container').style.display = 'none';
             
             window.print();
@@ -2532,6 +2616,7 @@
                 document.querySelectorAll('.nav-arrow').forEach(el => el.style.display = 'flex');
                 document.querySelector('.progress').style.display = 'block';
                 document.querySelector('.download-btn').style.display = 'flex';
+                document.querySelector('.download-btn-top').style.display = 'flex';
                 document.querySelector('.translate-container').style.display = 'block';
             }, 1000);
         }
