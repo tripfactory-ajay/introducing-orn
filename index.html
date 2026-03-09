@@ -450,69 +450,238 @@
             color: #ffffff;
         }
         
-        /* SLIDE 8: Team */
+        /* SLIDE 8: Team - Exact Design */
         .slide8-content {
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 100px 60px 60px;
+            padding: 90px 40px 40px;
         }
-        
-        .slide8-title {
-            font-size: 36px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #ffffff;
-        }
-        
-        .team-section {
-            margin-bottom: 40px;
-        }
-        
-        .team-label {
-            font-size: 14px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-        
-        .team-grid {
+
+        /* Top Stats Row */
+        .stats-row {
             display: flex;
             justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
         }
-        
-        .team-member {
+
+        .stat-card {
+            background: rgba(0, 188, 212, 0.1);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            border-radius: 12px;
+            padding: 20px 30px;
             text-align: center;
+            min-width: 140px;
         }
-        
-        .team-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            border: 2px solid rgba(255,255,255,0.2);
-            margin-bottom: 15px;
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #00bcd4;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 1px;
+        }
+
+        /* Three Columns */
+        .team-columns {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .team-column {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .column-header {
+            font-size: 13px;
+            font-weight: 700;
+            color: #00bcd4;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 40px;
+            gap: 8px;
         }
-        
-        .team-name {
-            font-size: 18px;
-            font-weight: 600;
+
+        .column-icon {
+            font-size: 16px;
+        }
+
+        /* Financial Column */
+        .financial-card {
+            background: rgba(0, 188, 212, 0.1);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .financial-big {
+            font-size: 48px;
+            font-weight: 700;
             color: #ffffff;
             margin-bottom: 5px;
         }
-        
-        .team-role {
+
+        .financial-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #00bcd4;
+            letter-spacing: 1px;
+        }
+
+        .financial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .financial-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .financial-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #00bcd4;
+            margin-bottom: 3px;
+        }
+
+        .financial-sub {
+            font-size: 10px;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.5px;
+        }
+
+        .security-box, .stability-box {
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid #00bcd4;
+            border-radius: 0 8px 8px 0;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .security-title, .stability-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #00bcd4;
+            margin-bottom: 5px;
+        }
+
+        .security-text, .stability-text {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.4;
+        }
+
+        /* Leadership Column */
+        .leader-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 12px;
+        }
+
+        .leader-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .leader-role {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+        }
+
+        .leader-tag {
+            font-size: 11px;
+            color: #00bcd4;
+            font-weight: 500;
+        }
+
+        /* Founders Column */
+        .founder-card {
+            background: rgba(0, 188, 212, 0.1);
+            border: 1px solid rgba(0, 188, 212, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .founder-card.main {
+            background: rgba(0, 188, 212, 0.15);
+            border: 1px solid rgba(0, 188, 212, 0.4);
+        }
+
+        .founder-card.dual {
+            background: rgba(0, 188, 212, 0.08);
+        }
+
+        .founder-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 3px;
+        }
+
+        .founder-role {
+            font-size: 12px;
+            color: #00bcd4;
+            margin-bottom: 5px;
+        }
+
+        .founder-achieve {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.3;
+        }
+
+        /* C-Suite Section */
+        .csuite-header {
+            font-size: 12px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 1.5px;
+            margin: 20px 0 12px 0;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .csuite-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+        }
+
+        .csuite-name {
             font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+
+        .csuite-role {
+            font-size: 11px;
             color: rgba(255,255,255,0.6);
         }
         
@@ -800,63 +969,136 @@
         </div>
     </div>
 
-    <!-- SLIDE 8: Team -->
+    <!-- SLIDE 8: Team - EXACT DESIGN with C-Suite -->
     <div class="slide" id="slide8">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-logo">
             <span class="slide-number">08 / 09</span>
         </div>
         <div class="slide8-content">
-            <div class="slide8-title animate delay-1">Leadership Team</div>
-            
-            <div class="team-section animate delay-2">
-                <div class="team-label">Founders</div>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="team-avatar">👤</div>
-                        <div class="team-name">Vinay Gupta</div>
-                        <div class="team-role">Founder & CEO</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-avatar">👤</div>
-                        <div class="team-name">Amit Aggarwal</div>
-                        <div class="team-role">Co-Founder</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-avatar">👤</div>
-                        <div class="team-name">Ankit Agarwal</div>
-                        <div class="team-role">Co-Founder</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-avatar">👤</div>
-                        <div class="team-name">Ankush Agarwal</div>
-                        <div class="team-role">Co-Founder</div>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-avatar">👤</div>
-                        <div class="team-name">Varun Gupta</div>
-                        <div class="team-role">Co-Founder</div>
-                    </div>
+            <!-- Top Stats Row -->
+            <div class="stats-row animate delay-1">
+                <div class="stat-card">
+                    <div class="stat-value">$60B</div>
+                    <div class="stat-label">HCL GROUP BACKING</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">226K+</div>
+                    <div class="stat-label">GLOBAL WORKFORCE</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">200+</div>
+                    <div class="stat-label">DELIVERY CENTERS</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">ISO</div>
+                    <div class="stat-label">27001 CERTIFIED</div>
                 </div>
             </div>
             
-            <div class="team-section animate delay-3">
-                <div class="team-label">C-Suite</div>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="team-avatar">👤</div>
-                        <div class="team-name">Raj Kumar</div>
-                        <div class="team-role">COO</div>
+            <!-- Three Columns -->
+            <div class="team-columns">
+                <!-- Column 1: Financial Strength -->
+                <div class="team-column animate delay-2">
+                    <div class="column-header">
+                        <span class="column-icon">💰</span>
+                        FINANCIAL STRENGTH
                     </div>
-                    <div class="team-member">
-                        <div class="team-avatar">👤</div>
-                        <div class="team-name">Alia Taub</div>
-                        <div class="team-role">Chief People Officer</div>
+                    <div class="financial-card">
+                        <div class="financial-big">$60B</div>
+                        <div class="financial-label">HCL GROUP BACKING</div>
                     </div>
-                    <div class="team-member">
-                        <div class="team-avatar">👤</div>
-                        <div class="team-name">Ajay Kawa</div>
-                        <div class="team-role">Global Head of Business Development</div>
+                    <div class="financial-grid">
+                        <div class="financial-item">
+                            <div class="financial-title">Zero</div>
+                            <div class="financial-sub">DEBT</div>
+                        </div>
+                        <div class="financial-item">
+                            <div class="financial-title">Profitable</div>
+                            <div class="financial-sub">SINCE DAY 1</div>
+                        </div>
+                        <div class="financial-item">
+                            <div class="financial-title">$1.5B</div>
+                            <div class="financial-sub">VIA.COM GMV</div>
+                        </div>
+                        <div class="financial-item">
+                            <div class="financial-title">150+</div>
+                            <div class="financial-sub">INNOVATION LABS</div>
+                        </div>
+                    </div>
+                    <div class="security-box">
+                        <div class="security-title">🛡️ Enterprise-Grade Security</div>
+                        <div class="security-text">Bank-level encryption, SOC 2 compliance, ISO 27001 certification</div>
+                    </div>
+                    <div class="stability-box">
+                        <div class="stability-title">🏦 Financial Stability</div>
+                        <div class="stability-text">Backed by India's largest conglomerate. Zero debt, profitable operations</div>
+                    </div>
+                </div>
+                
+                <!-- Column 2: World-Class Leadership -->
+                <div class="team-column animate delay-2">
+                    <div class="column-header">
+                        <span class="column-icon">👔</span>
+                        WORLD-CLASS LEADERSHIP
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-name">Andrew McEvoy</div>
+                        <div class="leader-role">Former MD, Tourism Australia</div>
+                        <div class="leader-tag">🌏 Asia-Pacific Strategy</div>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-name">Ninan Chacko</div>
+                        <div class="leader-role">Former CEO, Travel Leaders Group (USA)</div>
+                        <div class="leader-tag">🇺🇸 North America Expansion</div>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-name">Bader Kanoo</div>
+                        <div class="leader-role">Regional Business Leader, Middle East</div>
+                        <div class="leader-tag">🇸🇦 GCC Operations</div>
+                    </div>
+                </div>
+                
+                <!-- Column 3: Proven Founders + C-Suite -->
+                <div class="team-column animate delay-2">
+                    <div class="column-header">
+                        <span class="column-icon">🚀</span>
+                        PROVEN FOUNDERS
+                    </div>
+                    <div class="founder-card main">
+                        <div class="founder-name">Vinay Gupta</div>
+                        <div class="founder-role">Founder & Group CEO</div>
+                        <div class="founder-achieve">Via.com: $1.5B GMV, 49 countries, 10M+ customers</div>
+                    </div>
+                    <div class="founder-card">
+                        <div class="founder-name">Amit Aggarwal</div>
+                        <div class="founder-role">Co-Founder & Group COO</div>
+                        <div class="founder-achieve">Via.com CTO, IIT Gold Medal, Scaled tech 20→100+</div>
+                    </div>
+                    <div class="founder-card">
+                        <div class="founder-name">Varun Gupta</div>
+                        <div class="founder-role">Co-Founder & Group CTO</div>
+                        <div class="founder-achieve">Built scalable architecture for 49 countries</div>
+                    </div>
+                    <div class="founder-card dual">
+                        <div class="founder-name">Ankit Agarwal • Ankush Agarwal</div>
+                        <div class="founder-role">Co-Founders</div>
+                        <div class="founder-achieve">Operations & Commercial Excellence</div>
+                    </div>
+                    
+                    <!-- C-Suite Section - ADDED -->
+                    <div class="csuite-header">C-SUITE</div>
+                    <div class="csuite-card">
+                        <div class="csuite-name">Raj Kumar</div>
+                        <div class="csuite-role">COO</div>
+                    </div>
+                    <div class="csuite-card">
+                        <div class="csuite-name">Alia Taub</div>
+                        <div class="csuite-role">Chief People Officer</div>
+                    </div>
+                    <div class="csuite-card">
+                        <div class="csuite-name">Ajay Kawa</div>
+                        <div class="csuite-role">Global Head of Business Development</div>
                     </div>
                 </div>
             </div>
