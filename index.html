@@ -197,7 +197,7 @@
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
         
-        /* SLIDE 1: Title Quote */
+        /* SLIDE 1: Title Quote - UPDATED FONT */
         .slide1-content {
             flex: 1;
             display: flex;
@@ -209,9 +209,9 @@
         }
         
         .slide1-text {
-            font-family: 'Times New Roman', serif;
+            font-family: 'Inter', sans-serif;
             font-size: 42px;
-            font-weight: 400;
+            font-weight: 300;
             line-height: 1.4;
             max-width: 900px;
             color: #ffffff;
@@ -285,9 +285,10 @@
             filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
         }
         
-        /* SLIDE 4: Global Map - Clean version */
+        /* SLIDE 4: Global Map - UPDATED with overlay */
         .slide4-content {
             flex: 1;
+            position: relative;
             display: flex;
             flex-direction: column;
             padding: 160px 60px 60px;
@@ -295,6 +296,7 @@
         
         .slide4-main {
             flex: 1;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -304,6 +306,88 @@
             max-width: 95%;
             max-height: 80vh;
             object-fit: contain;
+        }
+        
+        /* NEW: Slide 4 overlay matching slide 6 style */
+        .slide4-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            pointer-events: none;
+        }
+        
+        .slide4-fedex-box {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 20px 30px;
+            pointer-events: auto;
+        }
+        
+        .slide4-fedex-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .slide4-arrow {
+            font-size: 24px;
+            color: #00bcd4;
+        }
+        
+        .slide4-fedex-item {
+            text-align: center;
+        }
+        
+        .slide4-fedex-label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .slide4-fedex-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .slide4-fedex-sub {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 3px;
+        }
+        
+        .slide4-header-box {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 20px 30px;
+            text-align: right;
+            pointer-events: auto;
+            max-width: 400px;
+        }
+        
+        .slide4-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        
+        .slide4-subtitle {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
         }
         
         /* SLIDE 5: Data Tables */
@@ -776,7 +860,7 @@
             color: rgba(255,255,255,0.6);
         }
         
-        /* SLIDE 9: Final - Same 120px logo in center */
+        /* SLIDE 9: Final - UPDATED LOGO SIZE (30% larger) */
         .slide9-content {
             flex: 1;
             display: flex;
@@ -788,8 +872,8 @@
         }
         
         .slide9-logo {
-            height: 120px;
-            width: 120px;
+            height: 156px;
+            width: 156px;
             object-fit: contain;
             margin-bottom: 30px;
         }
@@ -900,19 +984,19 @@
                 font-size: 14px;
             }
             
-            .slide6-overlay {
+            .slide4-overlay, .slide6-overlay {
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
             }
             
-            .slide6-header-overlay {
+            .slide4-header-box, .slide6-header-overlay {
                 text-align: center;
             }
             
             .slide9-logo {
-                height: 80px;
-                width: 80px;
+                height: 100px;
+                width: 100px;
             }
             
             .slide9-main-text {
@@ -939,7 +1023,7 @@
         </svg>
     </button>
 
-    <!-- SLIDE 1: Title Quote -->
+    <!-- SLIDE 1: Title Quote - UPDATED FONT -->
     <div class="slide active" id="slide1">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-bars">
@@ -988,7 +1072,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 4: Global Map - Clean version -->
+    <!-- SLIDE 4: Global Map - UPDATED with title, text and FedEx-style overlay -->
     <div class="slide" id="slide4">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-logo">
@@ -997,6 +1081,27 @@
         <div class="slide4-content">
             <div class="slide4-main">
                 <img src="global-map.png" alt="ORN Worldwide" class="slide4-image animate delay-1">
+                <div class="slide4-overlay animate delay-2">
+                    <div class="slide4-fedex-box">
+                        <div class="slide4-fedex-content">
+                            <div class="slide4-fedex-item">
+                                <div class="slide4-fedex-label">Logistics Giants</div>
+                                <div class="slide4-fedex-name" style="color: #4d148c;">FedEx</div>
+                                <div class="slide4-fedex-sub">Moves packages globally</div>
+                            </div>
+                            <div class="slide4-arrow">→</div>
+                            <div class="slide4-fedex-item">
+                                <div class="slide4-fedex-label">We Are</div>
+                                <div class="slide4-fedex-name" style="color: #00bcd4;">ORN</div>
+                                <div class="slide4-fedex-sub">Moves travelers seamlessly</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide4-header-box">
+                        <div class="slide4-title">ORN Worldwide</div>
+                        <div class="slide4-subtitle">The missing layer of global hardware and infrastructure for uniform delivery of experiences.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1308,7 +1413,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 9: Final - Same 120px logo in center -->
+    <!-- SLIDE 9: Final - UPDATED LOGO SIZE (30% larger = 156px) -->
     <div class="slide" id="slide9">
         <div class="header">
             <span class="slide-number">09 / 09</span>
