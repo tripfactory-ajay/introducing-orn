@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORN - Infrastructure for Tourism</title>
+    <title>ORN - Orchestrated Rhythms of Nature</title>
+    <meta name="description" content="Your way to discover, live, and experience the world — precisely, effortlessly, beautifully.">
+    <meta property="og:title" content="ORN - Orchestrated Rhythms of Nature">
+    <meta property="og:description" content="Your way to discover, live, and experience the world — precisely, effortlessly, beautifully.">
+    <meta property="og:image" content="orn-logo.png">
+    <meta property="og:type" content="website">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -74,12 +79,12 @@
             flex-direction: column;
         }
         
-        /* Header - 90px ORN Logo (100px for slides 1-8, 90px for slide 9) */
+        /* Header - 120px ORN Logo consistent on all slides */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 50px;
+            padding: 25px 40px;
             position: absolute;
             top: 0;
             left: 0;
@@ -88,13 +93,9 @@
         }
         
         .orn-logo {
-            height: 100px;
-            width: auto;
-        }
-        
-        .orn-logo-small {
-            height: 90px;
-            width: auto;
+            height: 120px;
+            width: 120px;
+            object-fit: contain;
         }
         
         .slide-number {
@@ -104,10 +105,11 @@
             letter-spacing: 2px;
         }
         
-        /* Small colored bars logo for top right (Slides 1-3) */
+        /* Small colored bars logo for top right (Slides 1-3) - now same size */
         .orn-bars {
-            height: 35px;
-            width: auto;
+            height: 120px;
+            width: 120px;
+            object-fit: contain;
         }
         
         /* Navigation */
@@ -227,7 +229,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 100px 60px 60px;
+            padding: 140px 60px 60px;
         }
         
         .slide2-header {
@@ -258,7 +260,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 100px 60px 60px;
+            padding: 140px 60px 60px;
         }
         
         .slide3-header {
@@ -288,7 +290,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 130px 60px 60px;
+            padding: 160px 60px 60px;
         }
         
         .slide4-main {
@@ -309,7 +311,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 130px 50px 50px;
+            padding: 160px 50px 50px;
         }
         
         .slide5-header {
@@ -369,29 +371,56 @@
             margin: 0 -10px;
         }
         
-        /* SLIDE 6: World Map with FedEx Box */
+        /* SLIDE 6: World Map with FedEx Box Overlay */
         .slide6-content {
             flex: 1;
+            position: relative;
             display: flex;
             flex-direction: column;
-            padding: 130px 60px 60px;
+            padding: 160px 60px 60px;
         }
         
-        .slide6-top {
+        .slide6-main {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .slide6-image {
+            max-width: 95%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        /* Overlay containers */
+        .slide6-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
+            padding: 20px;
+            pointer-events: none;
+        }
+        
+        .fedex-box-overlay {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 20px 30px;
+            pointer-events: auto;
         }
         
         .fedex-box {
             display: flex;
             align-items: center;
             gap: 15px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            padding: 20px 30px;
         }
         
         .fedex-arrow {
@@ -423,35 +452,28 @@
             margin-top: 3px;
         }
         
-        .slide6-header-text {
+        .slide6-header-overlay {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 20px 30px;
             text-align: right;
+            pointer-events: auto;
         }
         
         .slide6-title {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 600;
             color: #ffffff;
             margin-bottom: 10px;
         }
         
         .slide6-subtitle {
-            font-size: 14px;
-            color: rgba(255,255,255,0.7);
-            max-width: 400px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            max-width: 350px;
             line-height: 1.5;
-        }
-        
-        .slide6-main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .slide6-image {
-            max-width: 95%;
-            max-height: 65vh;
-            object-fit: contain;
         }
         
         /* SLIDE 7: Pyramid - Enlarged 20% */
@@ -459,7 +481,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 130px 60px 60px;
+            padding: 160px 60px 60px;
         }
         
         .slide7-title {
@@ -479,8 +501,8 @@
         }
         
         .pyramid-image {
-            max-width: 54%; /* Increased from 45% by 20% */
-            max-height: 78vh; /* Increased from 65vh by 20% */
+            max-width: 54%;
+            max-height: 78vh;
             object-fit: contain;
         }
         
@@ -524,7 +546,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 130px 40px 40px;
+            padding: 160px 40px 40px;
         }
 
         /* Top Stats Row */
@@ -754,7 +776,7 @@
             color: rgba(255,255,255,0.6);
         }
         
-        /* SLIDE 9: Final - No header logo */
+        /* SLIDE 9: Final - Same 120px logo in center */
         .slide9-content {
             flex: 1;
             display: flex;
@@ -767,7 +789,8 @@
         
         .slide9-logo {
             height: 120px;
-            width: auto;
+            width: 120px;
+            object-fit: contain;
             margin-bottom: 30px;
         }
         
@@ -805,6 +828,96 @@
             color: rgba(255,255,255,0.6);
             max-width: 600px;
             line-height: 1.6;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .orn-logo, .orn-bars {
+                height: 60px;
+                width: 60px;
+            }
+            
+            .slide-number {
+                font-size: 11px;
+            }
+            
+            .nav-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .nav-arrow.prev { left: 10px; }
+            .nav-arrow.next { right: 10px; }
+            
+            .slide1-text {
+                font-size: 24px;
+            }
+            
+            .slide2-header, .slide3-header, .slide7-title {
+                font-size: 20px;
+            }
+            
+            .tables-container {
+                flex-direction: column;
+            }
+            
+            .team-columns {
+                flex-direction: column;
+            }
+            
+            .stats-row {
+                flex-wrap: wrap;
+            }
+            
+            .stat-card {
+                min-width: 100px;
+                padding: 12px 15px;
+            }
+            
+            .stat-value {
+                font-size: 24px;
+            }
+            
+            .pyramid-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .pyramid-image {
+                max-width: 80%;
+                max-height: 40vh;
+            }
+            
+            .pyramid-texts {
+                gap: 20px;
+            }
+            
+            .pyramid-text {
+                font-size: 14px;
+            }
+            
+            .slide6-overlay {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .slide6-header-overlay {
+                text-align: center;
+            }
+            
+            .slide9-logo {
+                height: 80px;
+                width: 80px;
+            }
+            
+            .slide9-main-text {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
@@ -989,34 +1102,36 @@
         </div>
     </div>
 
-    <!-- SLIDE 6: World Map with FedEx Box -->
+    <!-- SLIDE 6: World Map with FedEx Box Overlay -->
     <div class="slide" id="slide6">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-logo">
             <span class="slide-number">06 / 09</span>
         </div>
         <div class="slide6-content">
-            <div class="slide6-top animate delay-1">
-                <div class="fedex-box">
-                    <div class="fedex-item">
-                        <div class="fedex-label">Logistics Giants</div>
-                        <div class="fedex-name" style="color: #4d148c;">FedEx</div>
-                        <div class="fedex-sub">Moves packages globally</div>
-                    </div>
-                    <div class="fedex-arrow">→</div>
-                    <div class="fedex-item">
-                        <div class="fedex-label">We Are</div>
-                        <div class="fedex-name" style="color: #00bcd4;">ORN</div>
-                        <div class="fedex-sub">Moves travelers seamlessly</div>
-                    </div>
-                </div>
-                <div class="slide6-header-text">
-                    <div class="slide6-title">ORN Worldwide</div>
-                    <div class="slide6-subtitle">The missing layer of global hardware and infrastructure for uniform delivery of experiences</div>
-                </div>
-            </div>
             <div class="slide6-main">
-                <img src="world-map.png" alt="World Map" class="slide6-image animate delay-2">
+                <img src="world-map.png" alt="World Map" class="slide6-image animate delay-1">
+                <div class="slide6-overlay animate delay-2">
+                    <div class="fedex-box-overlay">
+                        <div class="fedex-box">
+                            <div class="fedex-item">
+                                <div class="fedex-label">Logistics Giants</div>
+                                <div class="fedex-name" style="color: #4d148c;">FedEx</div>
+                                <div class="fedex-sub">Moves packages globally</div>
+                            </div>
+                            <div class="fedex-arrow">→</div>
+                            <div class="fedex-item">
+                                <div class="fedex-label">We Are</div>
+                                <div class="fedex-name" style="color: #00bcd4;">ORN</div>
+                                <div class="fedex-sub">Moves travelers seamlessly</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide6-header-overlay">
+                        <div class="slide6-title">ORN Worldwide</div>
+                        <div class="slide6-subtitle">The missing layer of global hardware and infrastructure for uniform delivery of experiences</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1193,10 +1308,9 @@
         </div>
     </div>
 
-    <!-- SLIDE 9: Final - No header logo, 90px logo size -->
+    <!-- SLIDE 9: Final - Same 120px logo in center -->
     <div class="slide" id="slide9">
         <div class="header">
-            <img src="orn-logo.png" alt="ORN" class="orn-logo-small">
             <span class="slide-number">09 / 09</span>
         </div>
         <div class="slide9-content">
