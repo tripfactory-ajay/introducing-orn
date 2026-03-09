@@ -72,7 +72,7 @@
                 background: #000000 !important;
             }
             
-            .nav-arrow, .progress, .download-btn {
+            .nav-arrow, .progress, .download-btn, .translate-btn, .translate-dropdown {
                 display: none !important;
             }
             
@@ -200,6 +200,85 @@
             stroke-width: 2;
         }
         
+        /* Translate Button - NEW */
+        .translate-container {
+            position: fixed;
+            top: 25px;
+            right: 100px;
+            z-index: 1002;
+        }
+        
+        .translate-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .translate-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .translate-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: rgba(255,255,255,0.6);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .translate-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 10px 0;
+            min-width: 160px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .translate-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .translate-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .translate-item:hover {
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+        }
+        
+        .translate-item.active {
+            color: #00bcd4;
+        }
+        
+        .translate-flag {
+            font-size: 16px;
+        }
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -213,7 +292,7 @@
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
         
-        /* SLIDE 1: Title Quote - UPDATED FONT */
+        /* SLIDE 1: Title Quote - UPDATED FONT SIZE TO 36px */
         .slide1-content {
             flex: 1;
             display: flex;
@@ -226,7 +305,7 @@
         
         .slide1-text {
             font-family: 'Inter', sans-serif;
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 300;
             line-height: 1.4;
             max-width: 900px;
@@ -406,7 +485,7 @@
             line-height: 1.5;
         }
         
-        /* SLIDE 5: Data Tables */
+        /* SLIDE 5: Data Tables - UPDATED HEADER FOR 2 LINES */
         .slide5-content {
             flex: 1;
             display: flex;
@@ -421,6 +500,14 @@
             margin-bottom: 40px;
             line-height: 1.5;
             color: #ffffff;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .slide5-header .break {
+            display: block;
+            margin-top: 8px;
         }
         
         .tables-container {
@@ -576,7 +663,7 @@
             line-height: 1.5;
         }
         
-        /* SLIDE 7: Pyramid - Enlarged 20% */
+        /* SLIDE 7: Pyramid - INCREASED IMAGE SIZE */
         .slide7-content {
             flex: 1;
             display: flex;
@@ -601,8 +688,8 @@
         }
         
         .pyramid-image {
-            max-width: 54%;
-            max-height: 78vh;
+            max-width: 60%;
+            max-height: 85vh;
             object-fit: contain;
         }
         
@@ -641,12 +728,20 @@
             color: #ffffff;
         }
         
-        /* SLIDE 8: Team - Exact Design with C-Suite */
+        /* SLIDE 8: Team - ADDED HEADER */
         .slide8-content {
             flex: 1;
             display: flex;
             flex-direction: column;
             padding: 160px 40px 40px;
+        }
+
+        .slide8-header {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #ffffff;
         }
 
         /* Top Stats Row */
@@ -876,7 +971,7 @@
             color: rgba(255,255,255,0.6);
         }
         
-        /* SLIDE 9: Final - UPDATED LOGO SIZE (30% larger) */
+        /* SLIDE 9: Final - INCREASED LOGO SIZE BY 20% (187px) */
         .slide9-content {
             flex: 1;
             display: flex;
@@ -888,8 +983,8 @@
         }
         
         .slide9-logo {
-            height: 156px;
-            width: 156px;
+            height: 187px;
+            width: 187px;
             object-fit: contain;
             margin-bottom: 30px;
         }
@@ -953,11 +1048,21 @@
             .nav-arrow.prev { left: 10px; }
             .nav-arrow.next { right: 10px; }
             
+            .translate-container {
+                top: 15px;
+                right: 60px;
+            }
+            
+            .translate-btn {
+                width: 35px;
+                height: 35px;
+            }
+            
             .slide1-text {
                 font-size: 24px;
             }
             
-            .slide2-header, .slide3-header, .slide7-title {
+            .slide2-header, .slide3-header, .slide7-title, .slide8-header {
                 font-size: 20px;
             }
             
@@ -1011,8 +1116,8 @@
             }
             
             .slide9-logo {
-                height: 100px;
-                width: 100px;
+                height: 120px;
+                width: 120px;
             }
             
             .slide9-main-text {
@@ -1022,6 +1127,63 @@
     </style>
 </head>
 <body>
+
+    <!-- Translate Button - NEW -->
+    <div class="translate-container">
+        <button class="translate-btn" onclick="toggleTranslate()" title="Translate">
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.6)" fill="none" stroke-width="2"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="rgba(255,255,255,0.6)" fill="none" stroke-width="2"/>
+                <path d="M2 12h20" stroke="rgba(255,255,255,0.6)" fill="none" stroke-width="2"/>
+            </svg>
+        </button>
+        <div class="translate-dropdown" id="translateDropdown">
+            <div class="translate-item active" onclick="changeLanguage('en')">
+                <span class="translate-flag">🇬🇧</span>
+                <span>English</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('hi')">
+                <span class="translate-flag">🇮🇳</span>
+                <span>Hindi</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('es')">
+                <span class="translate-flag">🇪🇸</span>
+                <span>Spanish</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('de')">
+                <span class="translate-flag">🇩🇪</span>
+                <span>German</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('fr')">
+                <span class="translate-flag">🇫🇷</span>
+                <span>French</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('ar')">
+                <span class="translate-flag">🇸🇦</span>
+                <span>Arabic</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('it')">
+                <span class="translate-flag">🇮🇹</span>
+                <span>Italian</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('tr')">
+                <span class="translate-flag">🇹🇷</span>
+                <span>Turkish</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('el')">
+                <span class="translate-flag">🇬🇷</span>
+                <span>Greek</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('zh')">
+                <span class="translate-flag">🇨🇳</span>
+                <span>Mandarin</span>
+            </div>
+            <div class="translate-item" onclick="changeLanguage('ru')">
+                <span class="translate-flag">🇷🇺</span>
+                <span>Russian</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <button class="nav-arrow prev" onclick="prevSlide()">
@@ -1039,31 +1201,31 @@
         </svg>
     </button>
 
-    <!-- SLIDE 1: Title Quote - UPDATED FONT -->
-    <div class="slide active" id="slide1">
+    <!-- SLIDE 1: Title Quote -->
+    <div class="slide active" id="slide1" data-slide="1">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-bars">
             <span class="slide-number">01 / 09</span>
         </div>
         <div class="slide1-content">
-            <div class="slide1-text animate delay-1">
+            <div class="slide1-text animate delay-1" data-translate="slide1-line1">
                 The world didn't change when music became digital.
             </div>
             <div class="slide1-line animate delay-2"></div>
-            <div class="slide1-text animate delay-3">
+            <div class="slide1-text animate delay-3" data-translate="slide1-line2">
                 It changed when Apple wrapped it around the user.
             </div>
         </div>
     </div>
 
     <!-- SLIDE 2: iPod Comparison -->
-    <div class="slide" id="slide2">
+    <div class="slide" id="slide2" data-slide="2">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-bars">
             <span class="slide-number">02 / 09</span>
         </div>
         <div class="slide2-content">
-            <div class="slide2-header animate delay-1">
+            <div class="slide2-header animate delay-1" data-translate="slide2-header">
                 What ORN Is Doing to Travel Is What Apple Did to Music
             </div>
             <div class="slide2-main">
@@ -1073,13 +1235,13 @@
     </div>
 
     <!-- SLIDE 3: iPhone/NX Comparison -->
-    <div class="slide" id="slide3">
+    <div class="slide" id="slide3" data-slide="3">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-bars">
             <span class="slide-number">03 / 09</span>
         </div>
         <div class="slide3-content">
-            <div class="slide3-header animate delay-1">
+            <div class="slide3-header animate delay-1" data-translate="slide3-header">
                 Rewiring the world the way it should be
             </div>
             <div class="slide3-main">
@@ -1088,8 +1250,8 @@
         </div>
     </div>
 
-    <!-- SLIDE 4: Global Map - UPDATED with title, text and FedEx-style overlay -->
-    <div class="slide" id="slide4">
+    <!-- SLIDE 4: Global Map -->
+    <div class="slide" id="slide4" data-slide="4">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-logo">
             <span class="slide-number">04 / 09</span>
@@ -1101,75 +1263,75 @@
                     <div class="slide4-fedex-box">
                         <div class="slide4-fedex-content">
                             <div class="slide4-fedex-item">
-                                <div class="slide4-fedex-label">Logistics Giants</div>
+                                <div class="slide4-fedex-label" data-translate="logistics-giants">Logistics Giants</div>
                                 <div class="slide4-fedex-name" style="color: #4d148c;">FedEx</div>
-                                <div class="slide4-fedex-sub">Moves packages globally</div>
+                                <div class="slide4-fedex-sub" data-translate="moves-packages">Moves packages globally</div>
                             </div>
                             <div class="slide4-arrow">→</div>
                             <div class="slide4-fedex-item">
-                                <div class="slide4-fedex-label">We Are</div>
+                                <div class="slide4-fedex-label" data-translate="we-are">We Are</div>
                                 <div class="slide4-fedex-name" style="color: #00bcd4;">ORN</div>
-                                <div class="slide4-fedex-sub">Moves travelers seamlessly</div>
+                                <div class="slide4-fedex-sub" data-translate="moves-travelers">Moves travelers seamlessly</div>
                             </div>
                         </div>
                     </div>
                     <div class="slide4-header-box">
-                        <div class="slide4-title">ORN Worldwide</div>
-                        <div class="slide4-subtitle">The missing layer of global hardware and infrastructure for uniform delivery of experiences.</div>
+                        <div class="slide4-title" data-translate="orn-worldwide">ORN Worldwide</div>
+                        <div class="slide4-subtitle" data-translate="slide4-subtitle">The missing layer of global hardware and infrastructure for uniform delivery of experiences.</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 5: Data Tables -->
-    <div class="slide" id="slide5">
+    <!-- SLIDE 5: Data Tables - UPDATED HEADER WITH LINE BREAK -->
+    <div class="slide" id="slide5" data-slide="5">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-logo">
             <span class="slide-number">05 / 09</span>
         </div>
         <div class="slide5-content">
-            <div class="slide5-header animate delay-1">
-                Enabling for the first time in human history experiences for the entire world personalized to each one - connecting every feeling worldwide to every human
+            <div class="slide5-header animate delay-1" data-translate="slide5-header">
+                Enabling for the first time in human history experiences for the entire world personalized to each one —<span class="break"></span>connecting every feeling worldwide to every human
             </div>
             <div class="tables-container animate delay-2">
                 <div class="table-wrapper">
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>Segment</th>
-                                <th>Travelers (M)</th>
-                                <th>Avg Spend ($)</th>
+                                <th data-translate="segment">Segment</th>
+                                <th data-translate="travelers">Travelers (M)</th>
+                                <th data-translate="avg-spend">Avg Spend ($)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Couples (Milestones, Romance)</td>
+                                <td data-translate="couples">Couples (Milestones, Romance)</td>
                                 <td>800</td>
                                 <td>4,000</td>
                             </tr>
                             <tr>
-                                <td>Families (School, Bonding, Multigen)</td>
+                                <td data-translate="families">Families (School, Bonding, Multigen)</td>
                                 <td>1,000</td>
                                 <td>5,000</td>
                             </tr>
                             <tr>
-                                <td>Solo Explorers & Creators</td>
+                                <td data-translate="solo">Solo Explorers & Creators</td>
                                 <td>600</td>
                                 <td>3,500</td>
                             </tr>
                             <tr>
-                                <td>Spiritual & Wellness Travelers</td>
+                                <td data-translate="spiritual">Spiritual & Wellness Travelers</td>
                                 <td>300</td>
                                 <td>4,500</td>
                             </tr>
                             <tr>
-                                <td>Group Journeys (Friends, Reunions, Events)</td>
+                                <td data-translate="group">Group Journeys (Friends, Reunions, Events)</td>
                                 <td>500</td>
                                 <td>4,000</td>
                             </tr>
                             <tr>
-                                <td>TOTAL</td>
+                                <td data-translate="total">TOTAL</td>
                                 <td>3,200</td>
                                 <td>—</td>
                             </tr>
@@ -1180,39 +1342,39 @@
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>Region</th>
-                                <th>Travelers (M)</th>
-                                <th>Avg Spend ($)</th>
+                                <th data-translate="region">Region</th>
+                                <th data-translate="travelers">Travelers (M)</th>
+                                <th data-translate="avg-spend">Avg Spend ($)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>North America</td>
+                                <td data-translate="north-america">North America</td>
                                 <td>600</td>
                                 <td>5,000</td>
                             </tr>
                             <tr>
-                                <td>Europe</td>
+                                <td data-translate="europe">Europe</td>
                                 <td>800</td>
                                 <td>4,500</td>
                             </tr>
                             <tr>
-                                <td>Asia-Pacific</td>
+                                <td data-translate="asia-pacific">Asia-Pacific</td>
                                 <td>1,200</td>
                                 <td>4,000</td>
                             </tr>
                             <tr>
-                                <td>Middle East & Africa</td>
+                                <td data-translate="mea">Middle East & Africa</td>
                                 <td>300</td>
                                 <td>3,500</td>
                             </tr>
                             <tr>
-                                <td>Latin America</td>
+                                <td data-translate="latam">Latin America</td>
                                 <td>300</td>
                                 <td>3,000</td>
                             </tr>
                             <tr>
-                                <td>TOTAL</td>
+                                <td data-translate="total">TOTAL</td>
                                 <td>3,200</td>
                                 <td>—</td>
                             </tr>
@@ -1224,7 +1386,7 @@
     </div>
 
     <!-- SLIDE 6: World Map with FedEx Box Overlay -->
-    <div class="slide" id="slide6">
+    <div class="slide" id="slide6" data-slide="6">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-logo">
             <span class="slide-number">06 / 09</span>
@@ -1236,87 +1398,92 @@
                     <div class="fedex-box-overlay">
                         <div class="fedex-box">
                             <div class="fedex-item">
-                                <div class="fedex-label">Logistics Giants</div>
+                                <div class="fedex-label" data-translate="logistics-giants">Logistics Giants</div>
                                 <div class="fedex-name" style="color: #4d148c;">FedEx</div>
-                                <div class="fedex-sub">Moves packages globally</div>
+                                <div class="fedex-sub" data-translate="moves-packages">Moves packages globally</div>
                             </div>
                             <div class="fedex-arrow">→</div>
                             <div class="fedex-item">
-                                <div class="fedex-label">We Are</div>
+                                <div class="fedex-label" data-translate="we-are">We Are</div>
                                 <div class="fedex-name" style="color: #00bcd4;">ORN</div>
-                                <div class="fedex-sub">Moves travelers seamlessly</div>
+                                <div class="fedex-sub" data-translate="moves-travelers">Moves travelers seamlessly</div>
                             </div>
                         </div>
                     </div>
                     <div class="slide6-header-overlay">
-                        <div class="slide6-title">ORN Worldwide</div>
-                        <div class="slide6-subtitle">The missing layer of global hardware and infrastructure for uniform delivery of experiences</div>
+                        <div class="slide6-title" data-translate="orn-worldwide">ORN Worldwide</div>
+                        <div class="slide6-subtitle" data-translate="slide6-subtitle">The missing layer of global hardware and infrastructure for uniform delivery of experiences</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 7: Pyramid - Enlarged 20% -->
-    <div class="slide" id="slide7">
+    <!-- SLIDE 7: Pyramid - INCREASED IMAGE SIZE -->
+    <div class="slide" id="slide7" data-slide="7">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-logo">
             <span class="slide-number">07 / 09</span>
         </div>
         <div class="slide7-content">
-            <div class="slide7-title animate delay-1">ORN Global Construct</div>
+            <div class="slide7-title animate delay-1" data-translate="slide7-title">ORN Global Construct</div>
             <div class="pyramid-container animate delay-2">
                 <img src="pyramid.png" alt="ORN Pyramid" class="pyramid-image">
                 <div class="pyramid-texts">
                     <div class="pyramid-item">
                         <div class="pyramid-number">1</div>
-                        <div class="pyramid-text">Respectable Trusted Brand</div>
+                        <div class="pyramid-text" data-translate="pyramid-1">Respectable Trusted Brand</div>
                     </div>
                     <div class="pyramid-item">
                         <div class="pyramid-number">2</div>
-                        <div class="pyramid-text">Global Distribution - Americas - Europe, Middle East, Asia, Austrlia & NZ</div>
+                        <div class="pyramid-text" data-translate="pyramid-2">Global Distribution - Americas - Europe, Middle East, Asia, Australia & NZ</div>
                     </div>
                     <div class="pyramid-item">
                         <div class="pyramid-number">3</div>
-                        <div class="pyramid-text">Differentiated Technology and Product Offerings</div>
+                        <div class="pyramid-text" data-translate="pyramid-3">Differentiated Technology and Product Offerings</div>
                     </div>
                     <div class="pyramid-item">
                         <div class="pyramid-number">4</div>
-                        <div class="pyramid-text">Solid Financial Position and Backing</div>
+                        <div class="pyramid-text" data-translate="pyramid-4">Solid Financial Position and Backing</div>
                     </div>
                     <div class="pyramid-item">
                         <div class="pyramid-number">5</div>
-                        <div class="pyramid-text">People, Assets and Infrastructure</div>
+                        <div class="pyramid-text" data-translate="pyramid-5">People, Assets and Infrastructure</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 8: Team - Exact Design with C-Suite -->
-    <div class="slide" id="slide8">
+    <!-- SLIDE 8: Team - ADDED HEADER -->
+    <div class="slide" id="slide8" data-slide="8">
         <div class="header">
             <img src="orn-logo.png" alt="ORN" class="orn-logo">
             <span class="slide-number">08 / 09</span>
         </div>
         <div class="slide8-content">
+            <!-- NEW HEADER -->
+            <div class="slide8-header animate delay-1" data-translate="slide8-header">
+                Our Financial Stability & World-Class Leadership
+            </div>
+            
             <!-- Top Stats Row -->
             <div class="stats-row animate delay-1">
                 <div class="stat-card">
                     <div class="stat-value">$60B</div>
-                    <div class="stat-label">HCL GROUP BACKING</div>
+                    <div class="stat-label" data-translate="hcl-backing">HCL GROUP BACKING</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value">226K+</div>
-                    <div class="stat-label">GLOBAL WORKFORCE</div>
+                    <div class="stat-label" data-translate="global-workforce">GLOBAL WORKFORCE</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value">200+</div>
-                    <div class="stat-label">DELIVERY CENTERS</div>
+                    <div class="stat-label" data-translate="delivery-centers">DELIVERY CENTERS</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value">ISO</div>
-                    <div class="stat-label">27001 CERTIFIED</div>
+                    <div class="stat-label" data-translate="certified">27001 CERTIFIED</div>
                 </div>
             </div>
             
@@ -1326,37 +1493,37 @@
                 <div class="team-column animate delay-2">
                     <div class="column-header">
                         <span class="column-icon">💰</span>
-                        FINANCIAL STRENGTH
+                        <span data-translate="financial-strength">FINANCIAL STRENGTH</span>
                     </div>
                     <div class="financial-card">
                         <div class="financial-big">$60B</div>
-                        <div class="financial-label">HCL GROUP BACKING</div>
+                        <div class="financial-label" data-translate="hcl-backing">HCL GROUP BACKING</div>
                     </div>
                     <div class="financial-grid">
                         <div class="financial-item">
-                            <div class="financial-title">Zero</div>
-                            <div class="financial-sub">DEBT</div>
+                            <div class="financial-title" data-translate="zero">Zero</div>
+                            <div class="financial-sub" data-translate="debt">DEBT</div>
                         </div>
                         <div class="financial-item">
-                            <div class="financial-title">Profitable</div>
-                            <div class="financial-sub">SINCE DAY 1</div>
+                            <div class="financial-title" data-translate="profitable">Profitable</div>
+                            <div class="financial-sub" data-translate="since-day1">SINCE DAY 1</div>
                         </div>
                         <div class="financial-item">
                             <div class="financial-title">$1.5B</div>
-                            <div class="financial-sub">VIA.COM GMV</div>
+                            <div class="financial-sub" data-translate="via-gmv">VIA.COM GMV</div>
                         </div>
                         <div class="financial-item">
                             <div class="financial-title">150+</div>
-                            <div class="financial-sub">INNOVATION LABS</div>
+                            <div class="financial-sub" data-translate="innovation-labs">INNOVATION LABS</div>
                         </div>
                     </div>
                     <div class="security-box">
-                        <div class="security-title">🛡️ Enterprise-Grade Security</div>
-                        <div class="security-text">Bank-level encryption, SOC 2 compliance, ISO 27001 certification</div>
+                        <div class="security-title">🛡️ <span data-translate="enterprise-security">Enterprise-Grade Security</span></div>
+                        <div class="security-text" data-translate="security-text">Bank-level encryption, SOC 2 compliance, ISO 27001 certification</div>
                     </div>
                     <div class="stability-box">
-                        <div class="stability-title">🏦 Financial Stability</div>
-                        <div class="stability-text">Backed by India's largest conglomerate. Zero debt, profitable operations</div>
+                        <div class="stability-title">🏦 <span data-translate="financial-stability">Financial Stability</span></div>
+                        <div class="stability-text" data-translate="stability-text">Backed by India's largest conglomerate. Zero debt, profitable operations</div>
                     </div>
                 </div>
                 
@@ -1364,22 +1531,22 @@
                 <div class="team-column animate delay-2">
                     <div class="column-header">
                         <span class="column-icon">👔</span>
-                        WORLD-CLASS LEADERSHIP
+                        <span data-translate="world-class-leadership">WORLD-CLASS LEADERSHIP</span>
                     </div>
                     <div class="leader-card">
                         <div class="leader-name">Andrew McEvoy</div>
-                        <div class="leader-role">Former MD, Tourism Australia</div>
-                        <div class="leader-tag">🌏 Asia-Pacific Strategy</div>
+                        <div class="leader-role" data-translate="andrew-role">Former MD, Tourism Australia</div>
+                        <div class="leader-tag">🌏 <span data-translate="asia-pacific-strategy">Asia-Pacific Strategy</span></div>
                     </div>
                     <div class="leader-card">
                         <div class="leader-name">Ninan Chacko</div>
-                        <div class="leader-role">Former CEO, Travel Leaders Group (USA)</div>
-                        <div class="leader-tag">🇺🇸 North America Expansion</div>
+                        <div class="leader-role" data-translate="ninan-role">Former CEO, Travel Leaders Group (USA)</div>
+                        <div class="leader-tag">🇺🇸 <span data-translate="north-america-expansion">North America Expansion</span></div>
                     </div>
                     <div class="leader-card">
                         <div class="leader-name">Bader Kanoo</div>
-                        <div class="leader-role">Regional Business Leader, Middle East</div>
-                        <div class="leader-tag">🇸🇦 GCC Operations</div>
+                        <div class="leader-role" data-translate="bader-role">Regional Business Leader, Middle East</div>
+                        <div class="leader-tag">🇸🇦 <span data-translate="gcc-operations">GCC Operations</span></div>
                     </div>
                 </div>
                 
@@ -1387,64 +1554,64 @@
                 <div class="team-column animate delay-2">
                     <div class="column-header">
                         <span class="column-icon">🚀</span>
-                        PROVEN FOUNDERS
+                        <span data-translate="proven-founders">PROVEN FOUNDERS</span>
                     </div>
                     <div class="founder-card main">
                         <div class="founder-name">Vinay Gupta</div>
-                        <div class="founder-role">Founder & Group CEO</div>
-                        <div class="founder-achieve">Via.com: $1.5B GMV, 49 countries, 10M+ customers</div>
+                        <div class="founder-role" data-translate="vinay-role">Founder & Group CEO</div>
+                        <div class="founder-achieve" data-translate="vinay-achieve">Via.com: $1.5B GMV, 49 countries, 10M+ customers</div>
                     </div>
                     <div class="founder-card">
                         <div class="founder-name">Amit Aggarwal</div>
-                        <div class="founder-role">Co-Founder & Group COO</div>
-                        <div class="founder-achieve">Via.com CTO, IIT Gold Medal, Scaled tech 20→100+</div>
+                        <div class="founder-role" data-translate="amit-role">Co-Founder & Group COO</div>
+                        <div class="founder-achieve" data-translate="amit-achieve">Via.com CTO, IIT Gold Medal, Scaled tech 20→100+</div>
                     </div>
                     <div class="founder-card">
                         <div class="founder-name">Varun Gupta</div>
-                        <div class="founder-role">Co-Founder & Group CTO</div>
-                        <div class="founder-achieve">Built scalable architecture for 49 countries</div>
+                        <div class="founder-role" data-translate="varun-role">Co-Founder & Group CTO</div>
+                        <div class="founder-achieve" data-translate="varun-achieve">Built scalable architecture for 49 countries</div>
                     </div>
                     <div class="founder-card dual">
                         <div class="founder-name">Ankit Agarwal • Ankush Agarwal</div>
-                        <div class="founder-role">Co-Founders</div>
-                        <div class="founder-achieve">Operations & Commercial Excellence</div>
+                        <div class="founder-role" data-translate="ankit-ankush-role">Co-Founders</div>
+                        <div class="founder-achieve" data-translate="ankit-ankush-achieve">Operations & Commercial Excellence</div>
                     </div>
                     
-                    <!-- C-Suite Section - ADDED UNDER FOUNDERS -->
-                    <div class="csuite-header">C-SUITE</div>
+                    <!-- C-Suite Section -->
+                    <div class="csuite-header" data-translate="c-suite">C-SUITE</div>
                     <div class="csuite-card">
                         <div class="csuite-name">Raj Kumar</div>
-                        <div class="csuite-role">COO</div>
+                        <div class="csuite-role" data-translate="raj-role">COO</div>
                     </div>
                     <div class="csuite-card">
                         <div class="csuite-name">Alia Taub</div>
-                        <div class="csuite-role">Chief People Officer</div>
+                        <div class="csuite-role" data-translate="alia-role">Chief People Officer</div>
                     </div>
                     <div class="csuite-card">
                         <div class="csuite-name">Ajay Kawa</div>
-                        <div class="csuite-role">Global Head of Business Development</div>
+                        <div class="csuite-role" data-translate="ajay-role">Global Head of Business Development</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 9: Final - UPDATED LOGO SIZE (30% larger = 156px) -->
-    <div class="slide" id="slide9">
+    <!-- SLIDE 9: Final - INCREASED LOGO SIZE -->
+    <div class="slide" id="slide9" data-slide="9">
         <div class="header">
             <span class="slide-number">09 / 09</span>
         </div>
         <div class="slide9-content">
             <img src="orn-logo.png" alt="ORN" class="slide9-logo animate delay-1">
-            <div class="slide9-tagline animate delay-2">Orchestrated Rhythms of Nature</div>
+            <div class="slide9-tagline animate delay-2" data-translate="tagline">Orchestrated Rhythms of Nature</div>
             <div class="slide9-wave animate delay-2">
                 <svg viewBox="0 0 400 100" preserveAspectRatio="none">
                     <path d="M0,50 Q100,10 200,50 T400,50" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
                     <path d="M0,50 Q100,90 200,50 T400,50" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
                 </svg>
             </div>
-            <div class="slide9-main-text animate delay-3">Travel, finally in tune.</div>
-            <div class="slide9-footer animate delay-3">
+            <div class="slide9-main-text animate delay-3" data-translate="slide9-main">Travel, finally in tune.</div>
+            <div class="slide9-footer animate delay-3" data-translate="slide9-footer">
                 Your way to discover, live, and experience the world — precisely, effortlessly, beautifully.
             </div>
         </div>
@@ -1453,8 +1620,860 @@
     <div class="progress" id="progress"></div>
 
     <script>
+        // Translations object
+        const translations = {
+            en: {
+                'slide1-line1': 'The world didn\'t change when music became digital.',
+                'slide1-line2': 'It changed when Apple wrapped it around the user.',
+                'slide2-header': 'What ORN Is Doing to Travel Is What Apple Did to Music',
+                'slide3-header': 'Rewiring the world the way it should be',
+                'logistics-giants': 'Logistics Giants',
+                'moves-packages': 'Moves packages globally',
+                'we-are': 'We Are',
+                'moves-travelers': 'Moves travelers seamlessly',
+                'orn-worldwide': 'ORN Worldwide',
+                'slide4-subtitle': 'The missing layer of global hardware and infrastructure for uniform delivery of experiences.',
+                'slide5-header': 'Enabling for the first time in human history experiences for the entire world personalized to each one —<span class="break"></span>connecting every feeling worldwide to every human',
+                'slide6-subtitle': 'The missing layer of global hardware and infrastructure for uniform delivery of experiences',
+                'segment': 'Segment',
+                'travelers': 'Travelers (M)',
+                'avg-spend': 'Avg Spend ($)',
+                'couples': 'Couples (Milestones, Romance)',
+                'families': 'Families (School, Bonding, Multigen)',
+                'solo': 'Solo Explorers & Creators',
+                'spiritual': 'Spiritual & Wellness Travelers',
+                'group': 'Group Journeys (Friends, Reunions, Events)',
+                'total': 'TOTAL',
+                'region': 'Region',
+                'north-america': 'North America',
+                'europe': 'Europe',
+                'asia-pacific': 'Asia-Pacific',
+                'mea': 'Middle East & Africa',
+                'latam': 'Latin America',
+                'slide7-title': 'ORN Global Construct',
+                'pyramid-1': 'Respectable Trusted Brand',
+                'pyramid-2': 'Global Distribution - Americas - Europe, Middle East, Asia, Australia & NZ',
+                'pyramid-3': 'Differentiated Technology and Product Offerings',
+                'pyramid-4': 'Solid Financial Position and Backing',
+                'pyramid-5': 'People, Assets and Infrastructure',
+                'slide8-header': 'Our Financial Stability & World-Class Leadership',
+                'hcl-backing': 'HCL GROUP BACKING',
+                'global-workforce': 'GLOBAL WORKFORCE',
+                'delivery-centers': 'DELIVERY CENTERS',
+                'certified': '27001 CERTIFIED',
+                'financial-strength': 'FINANCIAL STRENGTH',
+                'zero': 'Zero',
+                'debt': 'DEBT',
+                'profitable': 'Profitable',
+                'since-day1': 'SINCE DAY 1',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'INNOVATION LABS',
+                'enterprise-security': 'Enterprise-Grade Security',
+                'security-text': 'Bank-level encryption, SOC 2 compliance, ISO 27001 certification',
+                'financial-stability': 'Financial Stability',
+                'stability-text': 'Backed by India\'s largest conglomerate. Zero debt, profitable operations',
+                'world-class-leadership': 'WORLD-CLASS LEADERSHIP',
+                'andrew-role': 'Former MD, Tourism Australia',
+                'asia-pacific-strategy': 'Asia-Pacific Strategy',
+                'ninan-role': 'Former CEO, Travel Leaders Group (USA)',
+                'north-america-expansion': 'North America Expansion',
+                'bader-role': 'Regional Business Leader, Middle East',
+                'gcc-operations': 'GCC Operations',
+                'proven-founders': 'PROVEN FOUNDERS',
+                'vinay-role': 'Founder & Group CEO',
+                'vinay-achieve': 'Via.com: $1.5B GMV, 49 countries, 10M+ customers',
+                'amit-role': 'Co-Founder & Group COO',
+                'amit-achieve': 'Via.com CTO, IIT Gold Medal, Scaled tech 20→100+',
+                'varun-role': 'Co-Founder & Group CTO',
+                'varun-achieve': 'Built scalable architecture for 49 countries',
+                'ankit-ankush-role': 'Co-Founders',
+                'ankit-ankush-achieve': 'Operations & Commercial Excellence',
+                'c-suite': 'C-SUITE',
+                'raj-role': 'COO',
+                'alia-role': 'Chief People Officer',
+                'ajay-role': 'Global Head of Business Development',
+                'tagline': 'Orchestrated Rhythms of Nature',
+                'slide9-main': 'Travel, finally in tune.',
+                'slide9-footer': 'Your way to discover, live, and experience the world — precisely, effortlessly, beautifully.'
+            },
+            hi: {
+                'slide1-line1': 'दुनिया तब नहीं बदली जब संगीत डिजिटल बना।',
+                'slide1-line2': 'यह तब बदली जब एप्पल ने इसे उपयोगकर्ता के चारों ओर लपेट दिया।',
+                'slide2-header': 'ORN जो यात्रा के लिए कर रहा है, वही Apple ने संगीत के लिए किया था',
+                'slide3-header': 'दुनिया को उस तरह से फिर से तार्किक बनाना जैसी उसे होना चाहिए',
+                'logistics-giants': 'लॉजिस्टिक्स दिग्गज',
+                'moves-packages': 'वैश्विक रूप से पैकेज ले जाता है',
+                'we-are': 'हम हैं',
+                'moves-travelers': 'यात्रियों को सहजता से ले जाता है',
+                'orn-worldwide': 'ORN वैश्विक',
+                'slide4-subtitle': 'अनुभवों की एकरूप डिलीवरी के लिए वैश्विक हार्डवेयर और इंफ्रास्ट्रक्चर की गायब परत।',
+                'slide5-header': 'पहली बार मानव इतिहास में पूरी दुनिया के लिए व्यक्तिगत अनुभव सक्षम करना —<span class="break"></span>दुनिया भर की हर भावना को हर इंसान से जोड़ना',
+                'slide6-subtitle': 'अनुभवों की एकरूप डिलीवरी के लिए वैश्विक हार्डवेयर और इंफ्रास्ट्रक्चर की गायब परत',
+                'segment': 'खंड',
+                'travelers': 'यात्री (M)',
+                'avg-spend': 'औसत खर्च ($)',
+                'couples': 'जोड़े (मील के पत्थर, रोमांस)',
+                'families': 'परिवार (स्कूल, बंधन, बहु-पीढ़ी)',
+                'solo': 'एकल अन्वेषक और रचनाकार',
+                'spiritual': 'आध्यात्मिक और वेलनेस यात्री',
+                'group': 'समूह यात्राएं (दोस्त, पुनर्मिलन, कार्यक्रम)',
+                'total': 'कुल',
+                'region': 'क्षेत्र',
+                'north-america': 'उत्तर अमेरिका',
+                'europe': 'यूरोप',
+                'asia-pacific': 'एशिया-प्रशांत',
+                'mea': 'मध्य पूर्व और अफ्रीका',
+                'latam': 'लैटिन अमेरिका',
+                'slide7-title': 'ORN वैश्विक संरचना',
+                'pyramid-1': 'सम्मानित विश्वसनीय ब्रांड',
+                'pyramid-2': 'वैश्विक वितरण - अमेरिका - यूरोप, मध्य पूर्व, एशिया, ऑस्ट्रेलिया और NZ',
+                'pyramid-3': 'विभेदित प्रौद्योगिकी और उत्पाद पेशकश',
+                'pyramid-4': 'ठोस वित्तीय स्थिति और समर्थन',
+                'pyramid-5': 'लोग, संपत्ति और इंफ्रास्ट्रक्चर',
+                'slide8-header': 'हमारी वित्तीय स्थिरता और विश्व-स्तरीय नेतृत्व',
+                'hcl-backing': 'HCL समूह समर्थन',
+                'global-workforce': 'वैश्विक कार्यबल',
+                'delivery-centers': 'डिलीवरी केंद्र',
+                'certified': '27001 प्रमाणित',
+                'financial-strength': 'वित्तीय शक्ति',
+                'zero': 'शून्य',
+                'debt': 'कर्ज',
+                'profitable': 'लाभदायक',
+                'since-day1': 'पहले दिन से',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'इनोवेशन लैब्स',
+                'enterprise-security': 'एंटरप्राइज-ग्रेड सुरक्षा',
+                'security-text': 'बैंक-स्तरीय एन्क्रिप्शन, SOC 2 अनुपालन, ISO 27001 प्रमाणन',
+                'financial-stability': 'वित्तीय स्थिरता',
+                'stability-text': 'भारत के सबसे बड़े समूह द्वारा समर्थित। शून्य कर्ज, लाभदायक संचालन',
+                'world-class-leadership': 'विश्व-स्तरीय नेतृत्व',
+                'andrew-role': 'पूर्व MD, टूरिज्म ऑस्ट्रेलिया',
+                'asia-pacific-strategy': 'एशिया-प्रशांत रणनीति',
+                'ninan-role': 'पूर्व CEO, ट्रैवल लीडर्स ग्रुप (USA)',
+                'north-america-expansion': 'उत्तर अमेरिका विस्तार',
+                'bader-role': 'क्षेत्रीय व्यवसाय नेता, मध्य पूर्व',
+                'gcc-operations': 'GCC संचालन',
+                'proven-founders': 'सिद्ध संस्थापक',
+                'vinay-role': 'संस्थापक और समूह CEO',
+                'vinay-achieve': 'Via.com: $1.5B GMV, 49 देश, 10M+ ग्राहक',
+                'amit-role': 'सह-संस्थापक और समूह COO',
+                'amit-achieve': 'Via.com CTO, IIT गोल्ड मेडल, तकनीकी स्केल 20→100+',
+                'varun-role': 'सह-संस्थापक और समूह CTO',
+                'varun-achieve': '49 देशों के लिए स्केलेबल आर्किटेक्चर बनाया',
+                'ankit-ankush-role': 'सह-संस्थापक',
+                'ankit-ankush-achieve': 'संचालन और वाणिज्यिक उत्कृष्टता',
+                'c-suite': 'C-सूट',
+                'raj-role': 'COO',
+                'alia-role': 'मुख्य लोग अधिकारी',
+                'ajay-role': 'वैश्विक व्यवसाय विकास प्रमुख',
+                'tagline': 'प्रकृति की संचालित लय',
+                'slide9-main': 'यात्रा, अंततः सुर में।',
+                'slide9-footer': 'दुनिया को खोजने, जीने और अनुभव करने का आपका तरीका — सटीक रूप से, सहजता से, सुंदरता से।'
+            },
+            es: {
+                'slide1-line1': 'El mundo no cambió cuando la música se volvió digital.',
+                'slide1-line2': 'Cambió cuando Apple lo envolvió alrededor del usuario.',
+                'slide2-header': 'Lo que ORN está haciendo con los viajes es lo que Apple hizo con la música',
+                'slide3-header': 'Reconectando el mundo como debería ser',
+                'logistics-giants': 'Gigantes Logísticos',
+                'moves-packages': 'Mueve paquetes globalmente',
+                'we-are': 'Somos',
+                'moves-travelers': 'Mueve viajeros sin problemas',
+                'orn-worldwide': 'ORN Mundial',
+                'slide4-subtitle': 'La capa faltante de hardware global e infraestructura para la entrega uniforme de experiencias.',
+                'slide5-header': 'Habilitando por primera vez en la historia humana experiencias para el mundo entero personalizadas para cada uno —<span class="break"></span>conectando cada sentimiento mundialmente con cada humano',
+                'slide6-subtitle': 'La capa faltante de hardware global e infraestructura para la entrega uniforme de experiencias',
+                'segment': 'Segmento',
+                'travelers': 'Viajeros (M)',
+                'avg-spend': 'Gasto Prom ($)',
+                'couples': 'Parejas (Hitos, Romance)',
+                'families': 'Familias (Escuela, Vínculos, Multigen)',
+                'solo': 'Exploradores y Creadores Solitarios',
+                'spiritual': 'Viajeros Espirituales y de Bienestar',
+                'group': 'Viajes en Grupo (Amigos, Reuniones, Eventos)',
+                'total': 'TOTAL',
+                'region': 'Región',
+                'north-america': 'Norteamérica',
+                'europe': 'Europa',
+                'asia-pacific': 'Asia-Pacífico',
+                'mea': 'Oriente Medio y África',
+                'latam': 'Latinoamérica',
+                'slide7-title': 'Estructura Global ORN',
+                'pyramid-1': 'Marca Confiable y Respetable',
+                'pyramid-2': 'Distribución Global - Américas - Europa, Oriente Medio, Asia, Australia y NZ',
+                'pyramid-3': 'Tecnología Diferenciada y Ofertas de Productos',
+                'pyramid-4': 'Posición Financiera Sólida y Respaldo',
+                'pyramid-5': 'Personas, Activos e Infraestructura',
+                'slide8-header': 'Nuestra Estabilidad Financiera y Liderazgo de Clase Mundial',
+                'hcl-backing': 'RESPALDO GRUPO HCL',
+                'global-workforce': 'FUERZA LABORAL GLOBAL',
+                'delivery-centers': 'CENTROS DE ENTREGA',
+                'certified': 'CERTIFICADO 27001',
+                'financial-strength': 'FUERZA FINANCIERA',
+                'zero': 'Cero',
+                'debt': 'DEUDA',
+                'profitable': 'Rentable',
+                'since-day1': 'DESDE EL DÍA 1',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'LABORATORIOS DE INNOVACIÓN',
+                'enterprise-security': 'Seguridad de Nivel Empresarial',
+                'security-text': 'Encriptación a nivel bancario, cumplimiento SOC 2, certificación ISO 27001',
+                'financial-stability': 'Estabilidad Financiera',
+                'stability-text': 'Respaldado por el conglomerado más grande de la India. Deuda cero, operaciones rentables',
+                'world-class-leadership': 'LIDERAZGO DE CLASE MUNDIAL',
+                'andrew-role': 'Ex Director General, Tourism Australia',
+                'asia-pacific-strategy': 'Estrategia Asia-Pacífico',
+                'ninan-role': 'Ex CEO, Travel Leaders Group (USA)',
+                'north-america-expansion': 'Expansión Norteamérica',
+                'bader-role': 'Líder de Negocios Regional, Oriente Medio',
+                'gcc-operations': 'Operaciones GCC',
+                'proven-founders': 'FUNDADORES COMPROBADOS',
+                'vinay-role': 'Fundador y CEO del Grupo',
+                'vinay-achieve': 'Via.com: $1.5B GMV, 49 países, 10M+ clientes',
+                'amit-role': 'Co-Fundador y COO del Grupo',
+                'amit-achieve': 'CTO de Via.com, Medalla de Oro IIT, Escaló tecnología 20→100+',
+                'varun-role': 'Co-Fundador y CTO del Grupo',
+                'varun-achieve': 'Construyó arquitectura escalable para 49 países',
+                'ankit-ankush-role': 'Co-Fundadores',
+                'ankit-ankush-achieve': 'Excelencia Operativa y Comercial',
+                'c-suite': 'EJECUTIVOS',
+                'raj-role': 'COO',
+                'alia-role': 'Directora de Personas',
+                'ajay-role': 'Jefe Global de Desarrollo de Negocios',
+                'tagline': 'Ritmos Orquestados de la Naturaleza',
+                'slide9-main': 'Viajes, finalmente en sintonía.',
+                'slide9-footer': 'Tu forma de descubrir, vivir y experimentar el mundo — precisamente, sin esfuerzo, bellamente.'
+            },
+            de: {
+                'slide1-line1': 'Die Welt veränderte sich nicht, als Musik digital wurde.',
+                'slide1-line2': 'Sie veränderte sich, als Apple sie um den Benutzer herum wickelte.',
+                'slide2-header': 'Was ORN für das Reisen tut, ist das, was Apple für die Musik getan hat',
+                'slide3-header': 'Die Welt neu verdrahten, wie sie sein sollte',
+                'logistics-giants': 'Logistik-Giganten',
+                'moves-packages': 'Bewegt Pakete weltweit',
+                'we-are': 'Wir sind',
+                'moves-travelers': 'Bewegt Reisende nahtlos',
+                'orn-worldwide': 'ORN Weltweit',
+                'slide4-subtitle': 'Die fehlende Schicht globaler Hardware und Infrastruktur für die einheitliche Bereitstellung von Erlebnissen.',
+                'slide5-header': 'Ermöglicht zum ersten Mal in der menschlichen Geschichte Erlebnisse für die ganze Welt, personalisiert für jeden Einzelnen —<span class="break"></span>verbindet weltweit jedes Gefühl mit jedem Menschen',
+                'slide6-subtitle': 'Die fehlende Schicht globaler Hardware und Infrastruktur für die einheitliche Bereitstellung von Erlebnissen',
+                'segment': 'Segment',
+                'travelers': 'Reisende (M)',
+                'avg-spend': 'Ø Ausgaben ($)',
+                'couples': 'Paare (Meilensteine, Romantik)',
+                'families': 'Familien (Schule, Bindung, Multigen)',
+                'solo': 'Alleinreisende Entdecker & Schöpfer',
+                'spiritual': 'Spirituelle & Wellness-Reisende',
+                'group': 'Gruppenreisen (Freunde, Treffen, Events)',
+                'total': 'GESAMT',
+                'region': 'Region',
+                'north-america': 'Nordamerika',
+                'europe': 'Europa',
+                'asia-pacific': 'Asien-Pazifik',
+                'mea': 'Naher Osten & Afrika',
+                'latam': 'Lateinamerika',
+                'slide7-title': 'ORN Globale Struktur',
+                'pyramid-1': 'Respektable Vertrauenswürdige Marke',
+                'pyramid-2': 'Globale Verteilung - Amerika - Europa, Naher Osten, Asien, Australien & NZ',
+                'pyramid-3': 'Differenzierte Technologie und Produktangebote',
+                'pyramid-4': 'Solide Finanzlage und Rückendeckung',
+                'pyramid-5': 'Menschen, Vermögenswerte und Infrastruktur',
+                'slide8-header': 'Unsere Finanzielle Stabilität & Weltklasse-Führung',
+                'hcl-backing': 'HCL GRUPPE RÜCKHALT',
+                'global-workforce': 'GLOBALE BELEGSCHAFT',
+                'delivery-centers': 'LIEFERZENTREN',
+                'certified': '27001 ZERTIFIZIERT',
+                'financial-strength': 'FINANZKRAFT',
+                'zero': 'Null',
+                'debt': 'SCHULDEN',
+                'profitable': 'Profitabel',
+                'since-day1': 'SEIT TAG 1',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'INNOVATIONSLABORE',
+                'enterprise-security': 'Unternehmenssicherheit',
+                'security-text': 'Bank-Level-Verschlüsselung, SOC 2-Konformität, ISO 27001-Zertifizierung',
+                'financial-stability': 'Finanzielle Stabilität',
+                'stability-text': 'Unterstützt vom größten indischen Konglomerat. Null Schulden, profitable Operationen',
+                'world-class-leadership': 'WELTKLASSE-FÜHRUNG',
+                'andrew-role': 'Ehem. GF, Tourism Australia',
+                'asia-pacific-strategy': 'Asien-Pazifik Strategie',
+                'ninan-role': 'Ehem. CEO, Travel Leaders Group (USA)',
+                'north-america-expansion': 'Nordamerika Expansion',
+                'bader-role': 'Regionaler Geschäftsführer, Naher Osten',
+                'gcc-operations': 'GCC Operationen',
+                'proven-founders': 'BEWÄHRTE GRÜNDER',
+                'vinay-role': 'Gründer & Group CEO',
+                'vinay-achieve': 'Via.com: $1,5 Mrd. GMV, 49 Länder, 10M+ Kunden',
+                'amit-role': 'Mitbegründer & Group COO',
+                'amit-achieve': 'Via.com CTO, IIT Goldmedaille, Tech-Skalierung 20→100+',
+                'varun-role': 'Mitbegründer & Group CTO',
+                'varun-achieve': 'Skalierbare Architektur für 49 Länder gebaut',
+                'ankit-ankush-role': 'Mitbegründer',
+                'ankit-ankush-achieve': 'Betriebs- und kommerzielle Exzellenz',
+                'c-suite': 'VORSTAND',
+                'raj-role': 'COO',
+                'alia-role': 'Chief People Officer',
+                'ajay-role': 'Global Head of Business Development',
+                'tagline': 'Orchestrierte Rhythmen der Natur',
+                'slide9-main': 'Reisen, endlich im Einklang.',
+                'slide9-footer': 'Ihr Weg, die Welt zu entdecken, zu leben und zu erleben — präzise, mühelos, wunderschön.'
+            },
+            fr: {
+                'slide1-line1': 'Le monde n\'a pas changé quand la musique est devenue numérique.',
+                'slide1-line2': 'Il a changé quand Apple l\'a enveloppé autour de l\'utilisateur.',
+                'slide2-header': 'Ce qu\'ORN fait pour les voyages est ce qu\'Apple a fait pour la musique',
+                'slide3-header': 'Recâbler le monde comme il devrait être',
+                'logistics-giants': 'Géants de la Logistique',
+                'moves-packages': 'Transporte des colis dans le monde entier',
+                'we-are': 'Nous Sommes',
+                'moves-travelers': 'Transporte les voyageurs en toute fluidité',
+                'orn-worldwide': 'ORN Mondial',
+                'slide4-subtitle': 'La couche manquante de matériel mondial et d\'infrastructure pour une livraison uniforme d\'expériences.',
+                'slide5-header': 'Permettant pour la première fois dans l\'histoire humaine des expériences pour le monde entier personnalisées pour chacun —<span class="break"></span>connectant chaque sentiment dans le monde à chaque être humain',
+                'slide6-subtitle': 'La couche manquante de matériel mondial et d\'infrastructure pour une livraison uniforme d\'expériences',
+                'segment': 'Segment',
+                'travelers': 'Voyageurs (M)',
+                'avg-spend': 'Dép Moy ($)',
+                'couples': 'Couples (Jalons, Romance)',
+                'families': 'Familles (École, Liens, Multigen)',
+                'solo': 'Explorateurs & Créateurs Solitaires',
+                'spiritual': 'Voyageurs Spirituels & Bien-être',
+                'group': 'Voyages en Groupe (Amis, Retrouvailles, Événements)',
+                'total': 'TOTAL',
+                'region': 'Région',
+                'north-america': 'Amérique du Nord',
+                'europe': 'Europe',
+                'asia-pacific': 'Asie-Pacifique',
+                'mea': 'Moyen-Orient & Afrique',
+                'latam': 'Amérique Latine',
+                'slide7-title': 'Structure Globale ORN',
+                'pyramid-1': 'Marque Respectable et Fiable',
+                'pyramid-2': 'Distribution Globale - Amériques - Europe, Moyen-Orient, Asie, Australie & NZ',
+                'pyramid-3': 'Technologie Différenciée et Offres de Produits',
+                'pyramid-4': 'Position Financière Solide et Soutien',
+                'pyramid-5': 'Personnes, Actifs et Infrastructure',
+                'slide8-header': 'Notre Stabilité Financière & Leadership de Classe Mondiale',
+                'hcl-backing': 'SOUTIEN GROUPE HCL',
+                'global-workforce': 'MAIN-D\'ŒUVRE GLOBALE',
+                'delivery-centers': 'CENTRES DE LIVRAISON',
+                'certified': 'CERTIFIÉ 27001',
+                'financial-strength': 'FORCE FINANCIÈRE',
+                'zero': 'Zéro',
+                'debt': 'DETTE',
+                'profitable': 'Rentable',
+                'since-day1': 'DEPUIS LE JOUR 1',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'LABORATOIRES D\'INNOVATION',
+                'enterprise-security': 'Sécurité Niveau Entreprise',
+                'security-text': 'Cryptage niveau bancaire, conformité SOC 2, certification ISO 27001',
+                'financial-stability': 'Stabilité Financière',
+                'stability-text': 'Soutenu par le plus grand conglomérat indien. Zéro dette, opérations rentables',
+                'world-class-leadership': 'LEADERSHIP DE CLASSE MONDIALE',
+                'andrew-role': 'Ancien DG, Tourism Australia',
+                'asia-pacific-strategy': 'Stratégie Asie-Pacifique',
+                'ninan-role': 'Ancien PDG, Travel Leaders Group (USA)',
+                'north-america-expansion': 'Expansion Amérique du Nord',
+                'bader-role': 'Leader Commercial Régional, Moyen-Orient',
+                'gcc-operations': 'Opérations GCC',
+                'proven-founders': 'FONDATEURS ÉPROUVÉS',
+                'vinay-role': 'Fondateur & PDG du Groupe',
+                'vinay-achieve': 'Via.com: $1,5B GMV, 49 pays, 10M+ clients',
+                'amit-role': 'Co-Fondateur & COO du Groupe',
+                'amit-achieve': 'CTO de Via.com, Médaille d\'Or IIT, Tech évoluée 20→100+',
+                'varun-role': 'Co-Fondateur & CTO du Groupe',
+                'varun-achieve': 'Architecture évolutive construite pour 49 pays',
+                'ankit-ankush-role': 'Co-Fondateurs',
+                'ankit-ankush-achieve': 'Excellence Opérationnelle et Commerciale',
+                'c-suite': 'DIRECTION',
+                'raj-role': 'COO',
+                'alia-role': 'Directrice des Ressources Humaines',
+                'ajay-role': 'Directeur Global du Développement Commercial',
+                'tagline': 'Rythmes Orchestrés de la Nature',
+                'slide9-main': 'Voyages, enfin en harmonie.',
+                'slide9-footer': 'Votre façon de découvrir, vivre et expérimenter le monde — précisément, sans effort, magnifiquement.'
+            },
+            ar: {
+                'slide1-line1': 'لم يتغير العالم عندما أصبحت الموسيقى رقمية.',
+                'slide1-line2': 'تغير عندما قامت آبل بلفها حول المستخدم.',
+                'slide2-header': 'ما تفعله ORN للسفر هو ما فعلته آبل للموسيقى',
+                'slide3-header': 'إعادة توصيل العالم بالطريقة التي يجب أن يكون عليها',
+                'logistics-giants': 'عمالقة الخدمات اللوجستية',
+                'moves-packages': 'ينقل الحزم عالمياً',
+                'we-are': 'نحن',
+                'moves-travelers': 'ينقل المسافرين بسلاسة',
+                'orn-worldwide': 'ORN عالمياً',
+                'slide4-subtitle': 'الطبقة المفقودة من الأجهزة والبنية التحتية العالمية لتسليم التجارب بشكل موحد.',
+                'slide5-header': 'تمكينه لأول مرة في تاريخ البشرية من تجارب للعالم بأسره مخصصة لكل فرد —<span class="break"></span>ربط كل شعور في العالم بكل إنسان',
+                'slide6-subtitle': 'الطبقة المفقودة من الأجهزة والبنية التحتية العالمية لتسليم التجارب بشكل موحد',
+                'segment': 'القطاع',
+                'travelers': 'المسافرون (M)',
+                'avg-spend': 'متوسط الإنفاق ($)',
+                'couples': 'الأزواج (معالم، رومانسية)',
+                'families': 'العائلات (مدرسة، ترابط، متعدد الأجيال)',
+                'solo': 'المستكشفون والمبدعون المنفردون',
+                'spiritual': 'المسافرون الروحيون والصحيون',
+                'group': 'رحلات المجموعات (أصدقاء، لم شمل، فعاليات)',
+                'total': 'الإجمالي',
+                'region': 'المنطقة',
+                'north-america': 'أمريكا الشمالية',
+                'europe': 'أوروبا',
+                'asia-pacific': 'آسيا والمحيط الهادئ',
+                'mea': 'الشرق الأوسط وأفريقيا',
+                'latam': 'أمريكا اللاتينية',
+                'slide7-title': 'البنية العالمية لـ ORN',
+                'pyramid-1': 'علامة تجارية موثوقة محترمة',
+                'pyramid-2': 'التوزيع العالمي - الأمريكتان - أوروبا، الشرق الأوسط، آسيا، أستراليا ونيوزيلندا',
+                'pyramid-3': 'التكنولوجيا المتمايزة وعروض المنتجات',
+                'pyramid-4': 'الوضع المالي المتين والدعم',
+                'pyramid-5': 'الأشخاص والأصول والبنية التحتية',
+                'slide8-header': 'استقرارنا المالي والقيادة على مستوى عالمي',
+                'hcl-backing': 'دعم مجموعة HCL',
+                'global-workforce': 'القوى العاملة العالمية',
+                'delivery-centers': 'مراكز التسليم',
+                'certified': 'معتمد 27001',
+                'financial-strength': 'القوة المالية',
+                'zero': 'صفر',
+                'debt': 'ديون',
+                'profitable': 'مربح',
+                'since-day1': 'من اليوم الأول',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'معامل الابتكار',
+                'enterprise-security': 'أمان على مستوى المؤسسات',
+                'security-text': 'تشفير على مستوى البنوك، امتثال SOC 2، شهادة ISO 27001',
+                'financial-stability': 'الاستقرار المالي',
+                'stability-text': 'بدعم من أكبر مجموعة هندية. صفر ديون، عمليات مربحة',
+                'world-class-leadership': 'قيادة على مستوى عالمي',
+                'andrew-role': 'المدير العام السابق، سياحة أستراليا',
+                'asia-pacific-strategy': 'استراتيجية آسيا والمحيط الهادئ',
+                'ninan-role': 'الرئيس التنفيذي السابق، مجموعة قادة السفر (الولايات المتحدة)',
+                'north-america-expansion': 'التوسع في أمريكا الشمالية',
+                'bader-role': 'قائد الأعمال الإقليمي، الشرق الأوسط',
+                'gcc-operations': 'عمليات دول مجلس التعاون الخليجي',
+                'proven-founders': 'المؤسسون المثبتون',
+                'vinay-role': 'المؤسس والرئيس التنفيذي للمجموعة',
+                'vinay-achieve': 'Via.com: $1.5B GMV، 49 دولة، 10M+ عميل',
+                'amit-role': 'المؤسس المشارك والرئيس التنفيذي للعمليات للمجموعة',
+                'amit-achieve': 'CTO في Via.com، ميدالية ذهبية IIT، توسيع تقني 20→100+',
+                'varun-role': 'المؤسس المشارك والمدير التقني للمجموعة',
+                'varun-achieve': 'بنى بنية قابلة للتطوير لـ 49 دولة',
+                'ankit-ankush-role': 'المؤسسان المشاركان',
+                'ankit-ankush-achieve': 'التميز التشغيلي والتجاري',
+                'c-suite': 'الإدارة التنفيذية',
+                'raj-role': 'الرئيس التنفيذي للعمليات',
+                'alia-role': 'مديرة الموارد البشرية',
+                'ajay-role': 'رئيس تطوير الأعمال العالمي',
+                'tagline': 'إيقاعات الطبيعة المؤلفة',
+                'slide9-main': 'السفر، أخيراً في تناغم.',
+                'slide9-footer': 'طريقتك لاكتشاف العالم والعيش فيه وتجربته — بدقة، بسهولة، بجمال.'
+            },
+            it: {
+                'slide1-line1': 'Il mondo non è cambiato quando la musica è diventata digitale.',
+                'slide1-line2': 'È cambiato quando Apple l\'ha avvolta intorno all\'utente.',
+                'slide2-header': 'Ciò che ORN sta facendo per i viaggi è ciò che Apple ha fatto per la musica',
+                'slide3-header': 'Ricablare il mondo come dovrebbe essere',
+                'logistics-giants': 'Giganti della Logistica',
+                'moves-packages': 'Spedisce pacchi globalmente',
+                'we-are': 'Noi Siamo',
+                'moves-travelers': 'Muove i viaggiatori senza soluzione di continuità',
+                'orn-worldwide': 'ORN Mondiale',
+                'slide4-subtitle': 'Lo strato mancante di hardware globale e infrastruttura per la consegna uniforme di esperienze.',
+                'slide5-header': 'Abilitando per la prima volta nella storia umana esperienze per il mondo intero personalizzate per ognuno —<span class="break"></span>collegando ogni sentimento in tutto il mondo a ogni essere umano',
+                'slide6-subtitle': 'Lo strato mancante di hardware globale e infrastruttura per la consegna uniforme di esperienze',
+                'segment': 'Segmento',
+                'travelers': 'Viaggiatori (M)',
+                'avg-spend': 'Spesa Media ($)',
+                'couples': 'Coppie (Pietre Miliari, Romanticismo)',
+                'families': 'Famiglie (Scuola, Legami, Multigen)',
+                'solo': 'Esploratori e Creatori Solitari',
+                'spiritual': 'Viaggiatori Spirituali e Benessere',
+                'group': 'Viaggi di Gruppo (Amici, Runioni, Eventi)',
+                'total': 'TOTALE',
+                'region': 'Regione',
+                'north-america': 'Nord America',
+                'europe': 'Europa',
+                'asia-pacific': 'Asia-Pacifico',
+                'mea': 'Medio Oriente e Africa',
+                'latam': 'America Latina',
+                'slide7-title': 'Struttura Globale ORN',
+                'pyramid-1': 'Marchio Affidabile e Rispettabile',
+                'pyramid-2': 'Distribuzione Globale - Americhe - Europa, Medio Oriente, Asia, Australia e NZ',
+                'pyramid-3': 'Tecnologia Differenziata e Offerte di Prodotti',
+                'pyramid-4': 'Posizione Finanziaria Solida e Supporto',
+                'pyramid-5': 'Persone, Risorse e Infrastruttura',
+                'slide8-header': 'La Nostra Stabilità Finanziaria e Leadership di Classe Mondiale',
+                'hcl-backing': 'SOSTEGNO GRUPPO HCL',
+                'global-workforce': 'FORZA LAVORO GLOBALE',
+                'delivery-centers': 'CENTRI DI CONSEGNA',
+                'certified': 'CERTIFICATO 27001',
+                'financial-strength': 'FORZA FINANZIARIA',
+                'zero': 'Zero',
+                'debt': 'DEBITI',
+                'profitable': 'Redditizio',
+                'since-day1': 'DAL GIORNO 1',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'LABORATORI DI INNOVAZIONE',
+                'enterprise-security': 'Sicurezza di Livello Enterprise',
+                'security-text': 'Crittografia a livello bancario, conformità SOC 2, certificazione ISO 27001',
+                'financial-stability': 'Stabilità Finanziaria',
+                'stability-text': 'Sostenuto dal più grande conglomerato indiano. Zero debiti, operazioni redditizie',
+                'world-class-leadership': 'LEADERSHIP DI CLASSE MONDIALE',
+                'andrew-role': 'Ex DG, Tourism Australia',
+                'asia-pacific-strategy': 'Strategia Asia-Pacifico',
+                'ninan-role': 'Ex AD, Travel Leaders Group (USA)',
+                'north-america-expansion': 'Espansione Nord America',
+                'bader-role': 'Leader Commerciale Regionale, Medio Oriente',
+                'gcc-operations': 'Operazioni GCC',
+                'proven-founders': 'FONDATORI COMprovati',
+                'vinay-role': 'Fondatore & AD del Gruppo',
+                'vinay-achieve': 'Via.com: $1,5B GMV, 49 paesi, 10M+ clienti',
+                'amit-role': 'Co-Fondatore & COO del Gruppo',
+                'amit-achieve': 'CTO di Via.com, Medaglia d\'Oro IIT, Scaling tech 20→100+',
+                'varun-role': 'Co-Fondatore & CTO del Gruppo',
+                'varun-achieve': 'Ha costruito architettura scalabile per 49 paesi',
+                'ankit-ankush-role': 'Co-Fondatori',
+                'ankit-ankush-achieve': 'Eccellenza Operativa e Commerciale',
+                'c-suite': 'DIRIGENZA',
+                'raj-role': 'COO',
+                'alia-role': 'Chief People Officer',
+                'ajay-role': 'Global Head of Business Development',
+                'tagline': 'Ritmi Orchestrati della Natura',
+                'slide9-main': 'Viaggi, finalmente in sintonia.',
+                'slide9-footer': 'Il tuo modo di scoprire, vivere e sperimentare il mondo — precisamente, senza sforzo, splendidamente.'
+            },
+            tr: {
+                'slide1-line1': 'Dünya müzik dijitalleştiğinde değişmedi.',
+                'slide1-line2': 'Apple onu kullanıcının etrafına sardığında değişti.',
+                'slide2-header': 'ORN\'in Seyahata Yaptığı, Apple\'ın Müziğe Yaptığıdır',
+                'slide3-header': 'Dünyayı olması gerektiği gibi yeniden kablolama',
+                'logistics-giants': 'Lojistik Devleri',
+                'moves-packages': 'Paketleri küresel olarak taşır',
+                'we-are': 'Biz',
+                'moves-travelers': 'Seyahat edenleri sorunsuz bir şekilde taşır',
+                'orn-worldwide': 'ORN Küresel',
+                'slide4-subtitle': 'Deneyimlerin tek tip teslimi için küresel donanım ve altyapının eksik katmanı.',
+                'slide5-header': 'İnsanlık tarihinde ilk kez herkes için kişiselleştirilmiş tüm dünya için deneyimleri mümkün kılmak —<span class="break"></span>dünya çapında her duyguyu her insanla bağlamak',
+                'slide6-subtitle': 'Deneyimlerin tek tip teslimi için küresel donanım ve altyapının eksik katmanı',
+                'segment': 'Segment',
+                'travelers': 'Seyahat Edenler (M)',
+                'avg-spend': 'Ort Harcama ($)',
+                'couples': 'Çiftler (Kilometre Taşları, Romantizm)',
+                'families': 'Aileler (Okul, Bağlar, Çok Kuşak)',
+                'solo': 'Yalnız Kaşifler ve Yaratıcılar',
+                'spiritual': 'Spiritüel ve Sağlıklı Seyahat Edenler',
+                'group': 'Grup Seyahatleri (Arkadaşlar, Buluşmalar, Etkinlikler)',
+                'total': 'TOPLAM',
+                'region': 'Bölge',
+                'north-america': 'Kuzey Amerika',
+                'europe': 'Avrupa',
+                'asia-pacific': 'Asya-Pasifik',
+                'mea': 'Orta Doğu ve Afrika',
+                'latam': 'Latin Amerika',
+                'slide7-title': 'ORN Küresel Yapı',
+                'pyramid-1': 'Saygın Güvenilir Marka',
+                'pyramid-2': 'Küresel Dağıtım - Amerika - Avrupa, Orta Doğu, Asya, Avustralya ve YZ',
+                'pyramid-3': 'Farklılaştırılmış Teknoloji ve Ürün Teklifleri',
+                'pyramid-4': 'Sağlam Finansal Pozisyon ve Destek',
+                'pyramid-5': 'İnsanlar, Varlıklar ve Altyapı',
+                'slide8-header': 'Finansal İstikrarımız ve Dünya Standartlarında Liderliğimiz',
+                'hcl-backing': 'HCL GRUBU DESTEĞİ',
+                'global-workforce': 'KÜRESEL İŞ GÜCÜ',
+                'delivery-centers': 'TESLİMAT MERKEZLERİ',
+                'certified': '27001 SERTİFİKALI',
+                'financial-strength': 'FİNANSAL GÜÇ',
+                'zero': 'Sıfır',
+                'debt': 'BORÇ',
+                'profitable': 'Kârlı',
+                'since-day1': '1. GÜNDEN BERİ',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'İNOVASYON LABORATUVARLARI',
+                'enterprise-security': 'Kurumsal Düzeyde Güvenlik',
+                'security-text': 'Banka düzeyinde şifreleme, SOC 2 uyumluluğu, ISO 27001 sertifikasyonu',
+                'financial-stability': 'Finansal İstikrar',
+                'stability-text': 'Hindistan\'ın en büyük konglomeratı tarafından desteklenmektedir. Sıfır borç, kârlı operasyonlar',
+                'world-class-leadership': 'DÜNYA STANDARTLARINDA LİDERLİK',
+                'andrew-role': 'Eski MD, Tourism Australia',
+                'asia-pacific-strategy': 'Asya-Pasifik Stratejisi',
+                'ninan-role': 'Eski CEO, Travel Leaders Group (ABD)',
+                'north-america-expansion': 'Kuzey Amerika Genişlemesi',
+                'bader-role': 'Bölgesel İş Lideri, Orta Doğu',
+                'gcc-operations': 'GCC Operasyonları',
+                'proven-founders': 'KANITLANMIŞ KURUCULAR',
+                'vinay-role': 'Kurucu ve Grup CEO\'su',
+                'vinay-achieve': 'Via.com: $1,5B GMV, 49 ülke, 10M+ müşteri',
+                'amit-role': 'Kurucu Ortak ve Grup COO\'su',
+                'amit-achieve': 'Via.com CTO, IIT Altın Madalya, Teknolojiyi 20→100+ ölçeklendirdi',
+                'varun-role': 'Kurucu Ortak ve Grup CTO\'su',
+                'varun-achieve': '49 ülke için ölçeklenebilir mimari inşa etti',
+                'ankit-ankush-role': 'Kurucu Ortaklar',
+                'ankit-ankush-achieve': 'Operasyonel ve Ticari Mükemmellik',
+                'c-suite': 'YÖNETİM KURULU',
+                'raj-role': 'COO',
+                'alia-role': 'İnsan Kaynakları Direktörü',
+                'ajay-role': 'Küresel İş Geliştirme Direktörü',
+                'tagline': 'Doğanın Orkestre Edilmiş Ritimleri',
+                'slide9-main': 'Seyahat, nihayet uyum içinde.',
+                'slide9-footer': 'Dünyayı keşfetme, yaşama ve deneyimleme yolunuz — kesin olarak, çabasız, güzel bir şekilde.'
+            },
+            el: {
+                'slide1-line1': 'Ο κόσμος δεν άλλαξε όταν η μουσική έγινε ψηφιακή.',
+                'slide1-line2': 'Άλλαξε όταν η Apple την τύλιξε γύρω από τον χρήστη.',
+                'slide2-header': 'Αυτό που κάνει η ORN για τα ταξίδια είναι αυτό που έκανε η Apple για τη μουσική',
+                'slide3-header': 'Επανασυνδέοντας τον κόσμο όπως θα έπρεπε να είναι',
+                'logistics-giants': 'Γίγαντες Logistics',
+                'moves-packages': 'Μετακινεί δέματα παγκοσμίως',
+                'we-are': 'Είμαστε',
+                'moves-travelers': 'Μετακινεί ταξιδιώτες απρόσκοπτα',
+                'orn-worldwide': 'ORN Παγκόσμια',
+                'slide4-subtitle': 'Το ελλείπον στρώμα παγκόσμιου υλικού και υποδομής για ομοιόμορφη παράδοση εμπειριών.',
+                'slide5-header': 'Δίνοντας για πρώτη φορά στην ανθρώπινη ιστορία εμπειρίες για ολόκληρο τον κόσμο εξατομικευμένες για τον καθένα —<span class="break"></span>συνδέοντας κάθε συναίσθημα παγκοσμίως με κάθε άνθρωπο',
+                'slide6-subtitle': 'Το ελλείπον στρώμα παγκόσμιου υλικού και υποδομής για ομοιόμορφη παράδοση εμπειριών',
+                'segment': 'Τμήμα',
+                'travelers': 'Ταξιδιώτες (M)',
+                'avg-spend': 'Μέση Δαπάνη ($)',
+                'couples': 'Ζευγάρια (Ορόσημα, Ρομάντζο)',
+                'families': 'Οικογένειες (Σχολείο, Δεσμοί, Πολυγενεακές)',
+                'solo': 'Μοναχικοί Εξερευνητές & Δημιουργοί',
+                'spiritual': 'Πνευματικοί & Wellness Ταξιδιώτες',
+                'group': 'Ομαδικά Ταξίδια (Φίλοι, Συναντήσεις, Εκδηλώσεις)',
+                'total': 'ΣΥΝΟΛΟ',
+                'region': 'Περιοχή',
+                'north-america': 'Βόρεια Αμερική',
+                'europe': 'Ευρώπη',
+                'asia-pacific': 'Ασία-Ειρηνικός',
+                'mea': 'Μέση Ανατολή & Αφρική',
+                'latam': 'Λατινική Αμερική',
+                'slide7-title': 'Παγκόσμια Δομή ORN',
+                'pyramid-1': 'Αξιοσέβαστο Αξιόπιστο Brand',
+                'pyramid-2': 'Παγκόσμια Διανομή - Αμερική - Ευρώπη, Μέση Ανατολή, Ασία, Αυστραλία & NZ',
+                'pyramid-3': 'Διαφοροποιημένη Τεχνολογία και Προσφορές Προϊόντων',
+                'pyramid-4': 'Σταθερή Οικονομική Θέση και Υποστήριξη',
+                'pyramid-5': 'Άνθρωποι, Περιουσιακά Στοιχεία και Υποδομή',
+                'slide8-header': 'Η Οικονομική μας Σταθερότητα και η Ηγεσία Παγκόσμιας Κλάσης',
+                'hcl-backing': 'ΥΠΟΣΤΗΡΙΞΗ ΟΜΙΛΟΥ HCL',
+                'global-workforce': 'ΠΑΓΚΟΣΜΙΑ ΕΡΓΑΤΙΚΗ ΔΥΝΑΜΗ',
+                'delivery-centers': 'ΚΕΝΤΡΑ ΠΑΡΑΔΟΣΗΣ',
+                'certified': 'ΠΙΣΤΟΠΟΙΗΜΕΝΟ 27001',
+                'financial-strength': 'ΟΙΚΟΝΟΜΙΚΗ ΙΣΧΥΣ',
+                'zero': 'Μηδέν',
+                'debt': 'ΧΡΕΟΣ',
+                'profitable': 'Κερδοφόρο',
+                'since-day1': 'ΑΠΟ ΤΗΝ 1Η ΜΕΡΑ',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'ΕΡΓΑΣΤΗΡΙΑ ΚΑΙΝΟΤΟΜΙΑΣ',
+                'enterprise-security': 'Ασφάλεια Επιχειρηματικού Επιπέδου',
+                'security-text': 'Κρυπτογράφηση επιπέδου τράπεζας, συμμόρφωση SOC 2, πιστοποίηση ISO 27001',
+                'financial-stability': 'Οικονομική Σταθερότητα',
+                'stability-text': 'Υποστηριζόμενο από τον μεγαλύτερο ινδικό όμιλο. Μηδενικό χρέος, κερδοφόρες λειτουργίες',
+                'world-class-leadership': 'ΗΓΕΣΙΑ ΠΑΓΚΟΣΜΙΑΣ ΚΛΑΣΗΣ',
+                'andrew-role': 'Πρώην MD, Tourism Australia',
+                'asia-pacific-strategy': 'Στρατηγική Ασίας-Ειρηνικού',
+                'ninan-role': 'Πρώην CEO, Travel Leaders Group (ΗΠΑ)',
+                'north-america-expansion': 'Επέκταση Βόρειας Αμερικής',
+                'bader-role': 'Περιφερειακός Επιχειρηματικός Ηγέτης, Μέση Ανατολή',
+                'gcc-operations': 'Λειτουργίες GCC',
+                'proven-founders': 'ΑΠΟΔΕΔΕΙΓΜΕΝΟΙ ΙΔΡΥΤΕΣ',
+                'vinay-role': 'Ιδρυτής & Group CEO',
+                'vinay-achieve': 'Via.com: $1,5B GMV, 49 χώρες, 10M+ πελάτες',
+                'amit-role': 'Συνιδρυτής & Group COO',
+                'amit-achieve': 'CTO Via.com, Χρυσό Μετάλλιο IIT, Κλιμάκωση τεχνολογίας 20→100+',
+                'varun-role': 'Συνιδρυτής & Group CTO',
+                'varun-achieve': 'Έχτισε επεκτάσιμη αρχιτεκτονική για 49 χώρες',
+                'ankit-ankush-role': 'Συνιδρυτές',
+                'ankit-ankush-achieve': 'Επιχειρησιακή και Εμπορική Αριστεία',
+                'c-suite': 'ΔΙΟΙΚΗΤΙΚΟ ΣΥΜΒΟΥΛΙΟ',
+                'raj-role': 'COO',
+                'alia-role': 'Chief People Officer',
+                'ajay-role': 'Global Head of Business Development',
+                'tagline': 'Ενορχηστρωμένοι Ρυθμοί της Φύσης',
+                'slide9-main': 'Ταξίδια, επιτέλους σε αρμονία.',
+                'slide9-footer': 'Ο τρόπος σας να ανακαλύψετε, να ζήσετε και να βιώσετε τον κόσμο — ακριβώς, αβίαστα, όμορφα.'
+            },
+            zh: {
+                'slide1-line1': '当音乐数字化时，世界并没有改变。',
+                'slide1-line2': '当苹果将其围绕用户包装时，它改变了。',
+                'slide2-header': 'ORN对旅行所做的，就是苹果对音乐所做的',
+                'slide3-header': '以应有的方式重新连接世界',
+                'logistics-giants': '物流巨头',
+                'moves-packages': '全球运送包裹',
+                'we-are': '我们是',
+                'moves-travelers': '无缝运送旅客',
+                'orn-worldwide': 'ORN全球',
+                'slide4-subtitle': '全球硬件和基础设施的缺失层，用于统一交付体验。',
+                'slide5-header': '人类历史上首次为整个世界提供个性化体验 —<span class="break"></span>将全球每一种感受与每个人连接起来',
+                'slide6-subtitle': '全球硬件和基础设施的缺失层，用于统一交付体验',
+                'segment': '细分市场',
+                'travelers': '旅客（百万）',
+                'avg-spend': '平均消费（美元）',
+                'couples': '情侣（里程碑，浪漫）',
+                'families': '家庭（学校，亲情，多代）',
+                'solo': '独行探索者与创作者',
+                'spiritual': '精神与养生旅客',
+                'group': '团体旅行（朋友，重聚，活动）',
+                'total': '总计',
+                'region': '地区',
+                'north-america': '北美',
+                'europe': '欧洲',
+                'asia-pacific': '亚太',
+                'mea': '中东与非洲',
+                'latam': '拉丁美洲',
+                'slide7-title': 'ORN全球架构',
+                'pyramid-1': '受人尊敬的可信品牌',
+                'pyramid-2': '全球分销 - 美洲 - 欧洲、中东、亚洲、澳大利亚和新西兰',
+                'pyramid-3': '差异化技术和产品供应',
+                'pyramid-4': '稳固的财务状况和支持',
+                'pyramid-5': '人员、资产和基础设施',
+                'slide8-header': '我们的财务稳定性与世界级领导力',
+                'hcl-backing': 'HCL集团支持',
+                'global-workforce': '全球员工',
+                'delivery-centers': '交付中心',
+                'certified': '27001认证',
+                'financial-strength': '财务实力',
+                'zero': '零',
+                'debt': '债务',
+                'profitable': '盈利',
+                'since-day1': '自第一天起',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': '创新实验室',
+                'enterprise-security': '企业级安全',
+                'security-text': '银行级加密，SOC 2合规，ISO 27001认证',
+                'financial-stability': '财务稳定性',
+                'stability-text': '由印度最大的企业集团支持。零债务，盈利运营',
+                'world-class-leadership': '世界级领导力',
+                'andrew-role': '前总经理，澳大利亚旅游局',
+                'asia-pacific-strategy': '亚太战略',
+                'ninan-role': '前首席执行官，Travel Leaders集团（美国）',
+                'north-america-expansion': '北美扩张',
+                'bader-role': '区域业务负责人，中东',
+                'gcc-operations': '海合会运营',
+                'proven-founders': '久经考验的创始人',
+                'vinay-role': '创始人兼集团首席执行官',
+                'vinay-achieve': 'Via.com：15亿美元GMV，49个国家，1000万+客户',
+                'amit-role': '联合创始人兼集团首席运营官',
+                'amit-achieve': 'Via.com首席技术官，IIT金牌，技术规模20→100+',
+                'varun-role': '联合创始人兼集团首席技术官',
+                'varun-achieve': '为49个国家构建可扩展架构',
+                'ankit-ankush-role': '联合创始人',
+                'ankit-ankush-achieve': '运营与商业卓越',
+                'c-suite': '高管层',
+                'raj-role': '首席运营官',
+                'alia-role': '首席人才官',
+                'ajay-role': '全球业务发展负责人',
+                'tagline': '自然的编排节奏',
+                'slide9-main': '旅行，终于和谐。',
+                'slide9-footer': '您发现、生活和体验世界的方式 — 精确地、轻松地、美丽地。'
+            },
+            ru: {
+                'slide1-line1': 'Мир не изменился, когда музыка стала цифровой.',
+                'slide1-line2': 'Он изменился, когда Apple обернула её вокруг пользователя.',
+                'slide2-header': 'То, что ORN делает для путешествий, — это то, что Apple сделала для музыки',
+                'slide3-header': 'Переподключение мира так, каким он должен быть',
+                'logistics-giants': 'Гиганты Логистики',
+                'moves-packages': 'Перемещает посылки по всему миру',
+                'we-are': 'Мы',
+                'moves-travelers': 'Бесшовно перемещает путешественников',
+                'orn-worldwide': 'ORN Всемирный',
+                'slide4-subtitle': 'Отсутствующий слой глобального оборудования и инфраструктуры для единообразной доставки впечатлений.',
+                'slide5-header': 'Впервые в истории человечества обеспечивая впечатления для всего мира, персонализированные для каждого —<span class="break"></span>соединяя каждое чувство во всем мире с каждым человеком',
+                'slide6-subtitle': 'Отсутствующий слой глобального оборудования и инфраструктуры для единообразной доставки впечатлений',
+                'segment': 'Сегмент',
+                'travelers': 'Путешественники (M)',
+                'avg-spend': 'Средние расходы ($)',
+                'couples': 'Пары (Вехи, Романтика)',
+                'families': 'Семьи (Школа, Узы, Мультипоколение)',
+                'solo': 'Одиночные Исследователи и Создатели',
+                'spiritual': 'Духовные и Wellness Путешественники',
+                'group': 'Групповые Поездки (Друзья, Встречи, События)',
+                'total': 'ИТОГО',
+                'region': 'Регион',
+                'north-america': 'Северная Америка',
+                'europe': 'Европа',
+                'asia-pacific': 'Азиатско-Тихоокеанский регион',
+                'mea': 'Ближний Восток и Африка',
+                'latam': 'Латинская Америка',
+                'slide7-title': 'Глобальная Структура ORN',
+                'pyramid-1': 'Уважаемый Надёжный Бренд',
+                'pyramid-2': 'Глобальное Распределение - Америка - Европа, Ближний Восток, Азия, Австралия и NZ',
+                'pyramid-3': 'Дифференцированные Технологии и Продуктовые Предложения',
+                'pyramid-4': 'Прочное Финансовое Положение и Поддержка',
+                'pyramid-5': 'Люди, Активы и Инфраструктура',
+                'slide8-header': 'Наша Финансовая Стабильность и Лидерство Мирового Класса',
+                'hcl-backing': 'ПОДДЕРЖКА ГРУППЫ HCL',
+                'global-workforce': 'ГЛОБАЛЬНАЯ РАБОЧАЯ СИЛА',
+                'delivery-centers': 'ЦЕНТРЫ ДОСТАВКИ',
+                'certified': 'СЕРТИФИЦИРОВАНО 27001',
+                'financial-strength': 'ФИНАНСОВАЯ МОЩЬ',
+                'zero': 'Ноль',
+                'debt': 'ДОЛГ',
+                'profitable': 'Прибыльный',
+                'since-day1': 'С ПЕРВОГО ДНЯ',
+                'via-gmv': 'VIA.COM GMV',
+                'innovation-labs': 'ЛАБОРАТОРИИ ИННОВАЦИЙ',
+                'enterprise-security': 'Корпоративная Безопасность',
+                'security-text': 'Шифрование банковского уровня, соответствие SOC 2, сертификация ISO 27001',
+                'financial-stability': 'Финансовая Стабильность',
+                'stability-text': 'При поддержке крупнейшей индийской корпорации. Нулевой долг, прибыльные операции',
+                'world-class-leadership': 'ЛИДЕРСТВО МИРОВОГО КЛАССА',
+                'andrew-role': 'Бывший MD, Tourism Australia',
+                'asia-pacific-strategy': 'Стратегия Азиатско-Тихоокеанского региона',
+                'ninan-role': 'Бывший CEO, Travel Leaders Group (США)',
+                'north-america-expansion': 'Расширение в Северной Америке',
+                'bader-role': 'Региональный Бизнес-Лидер, Ближний Восток',
+                'gcc-operations': 'Операции GCC',
+                'proven-founders': 'ПРОВЕРЕННЫЕ ОСНОВАТЕЛИ',
+                'vinay-role': 'Основатель и Групповой CEO',
+                'vinay-achieve': 'Via.com: $1,5B GMV, 49 стран, 10M+ клиентов',
+                'amit-role': 'Сооснователь и Групповой COO',
+                'amit-achieve': 'CTO Via.com, Золотая Медаль IIT, Масштабирование технологий 20→100+',
+                'varun-role': 'Сооснователь и Групповой CTO',
+                'varun-achieve': 'Построил масштабируемую архитектуру для 49 стран',
+                'ankit-ankush-role': 'Сооснователи',
+                'ankit-ankush-achieve': 'Операционное и Коммерческое Превосходство',
+                'c-suite': 'РУКОВОДСТВО',
+                'raj-role': 'COO',
+                'alia-role': 'Chief People Officer',
+                'ajay-role': 'Global Head of Business Development',
+                'tagline': 'Оркестрованные Ритмы Природы',
+                'slide9-main': 'Путешествия, наконец в гармонии.',
+                'slide9-footer': 'Ваш способ открывать, жить и испытывать мир — точно, без усилий, красиво.'
+            }
+        };
+
+        let currentLanguage = 'en';
         let currentSlide = 1;
         const totalSlides = 9;
+        
+        function toggleTranslate() {
+            const dropdown = document.getElementById('translateDropdown');
+            dropdown.classList.toggle('active');
+        }
+        
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update active state in dropdown
+            document.querySelectorAll('.translate-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.translate-item').classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Close dropdown
+            document.getElementById('translateDropdown').classList.remove('active');
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.translate-container')) {
+                document.getElementById('translateDropdown').classList.remove('active');
+            }
+        });
         
         function showSlide(n) {
             const slides = document.querySelectorAll('.slide');
@@ -1485,6 +2504,7 @@
             document.querySelectorAll('.nav-arrow').forEach(el => el.style.display = 'none');
             document.querySelector('.progress').style.display = 'none';
             document.querySelector('.download-btn').style.display = 'none';
+            document.querySelector('.translate-container').style.display = 'none';
             
             window.print();
             
@@ -1495,6 +2515,7 @@
                 document.querySelectorAll('.nav-arrow').forEach(el => el.style.display = 'flex');
                 document.querySelector('.progress').style.display = 'block';
                 document.querySelector('.download-btn').style.display = 'flex';
+                document.querySelector('.translate-container').style.display = 'block';
             }, 1000);
         }
         
